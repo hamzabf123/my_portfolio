@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hamza Boufass — CV</title>
+    <style>
+      @page { size: A4; margin: 0; }
+
+      :root {
+        --ink: #303c51;
+        --ink-strong: #263144;
+        --line: #264c75;
+        --paper: #fbfcfd;
+        --side: #edf0f3;
+        --muted: #657084;
+        --accent: #0d96ad;
+        --soft-accent: #e8f5f7;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        overflow: hidden;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Aptos", "Segoe UI", sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cv {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      .header {
+        position: relative;
+        height: 46mm;
+        padding: 10.5mm 12mm 7mm 82mm;
+        color: #fff;
+        background: var(--ink-strong);
+      }
+
+      .header::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 54mm;
+        height: 100%;
+        content: "";
+        opacity: .38;
+        background:
+          linear-gradient(135deg, transparent 0 47%, rgba(13, 150, 173, .36) 47% 48%, transparent 48% 100%),
+          linear-gradient(45deg, transparent 0 58%, rgba(255, 255, 255, .08) 58% 59%, transparent 59% 100%);
+        pointer-events: none;
+      }
+
+      .name {
+        position: relative;
+        z-index: 1;
+        margin: 0 0 2.5mm;
+        font-family: "Century Gothic", "Aptos Display", "Segoe UI", sans-serif;
+        font-size: 26pt;
+        font-weight: 800;
+        letter-spacing: .1mm;
+        line-height: 1;
+      }
+
+      .role {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        font-family: "Century Gothic", "Aptos", sans-serif;
+        font-size: 11.8pt;
+        font-weight: 500;
+        letter-spacing: .82mm;
+        line-height: 1.35;
+      }
+
+      .header-note {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        gap: 2mm;
+        align-items: center;
+        margin-top: 3.3mm;
+        color: #cfeef2;
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: .35mm;
+        text-transform: uppercase;
+      }
+
+      .header-note::before {
+        width: 9mm;
+        height: 1px;
+        content: "";
+        background: var(--accent);
+      }
+
+      .portrait {
+        position: absolute;
+        z-index: 3;
+        top: 17mm;
+        left: 7.5mm;
+        width: 51mm;
+        height: 51mm;
+        overflow: hidden;
+        border: 2.1mm solid var(--ink-strong);
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .portrait img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .portrait::after {
+        position: absolute;
+        inset: auto 0 0;
+        height: 28%;
+        content: "";
+        background: linear-gradient(to top, rgba(38, 49, 68, .11), transparent);
+      }
+
+      .sidebar {
+        position: absolute;
+        top: 46mm;
+        bottom: 0;
+        left: 0;
+        width: 64mm;
+        padding: 27mm 6.7mm 7mm;
+        background: var(--side);
+        border-right: .55mm solid #111;
+      }
+
+      .main {
+        position: absolute;
+        top: 46mm;
+        right: 0;
+        bottom: 0;
+        left: 64mm;
+        padding: 8mm 10.5mm 6mm 14.5mm;
+        background: var(--paper);
+      }
+
+      .side-section { margin-bottom: 7.8mm; }
+      .side-section:last-child { margin-bottom: 0; }
+
+      .side-title,
+      .section-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Century Gothic", "Aptos Display", "Segoe UI", sans-serif;
+        font-weight: 800;
+        letter-spacing: 1.05mm;
+        text-transform: uppercase;
+      }
+
+      .side-title {
+        margin-bottom: 2.1mm;
+        padding-bottom: 1.8mm;
+        font-size: 11.5pt;
+        border-bottom: .45mm solid var(--ink);
+      }
+
+      .contact-list,
+      .mini-list,
+      .skill-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .contact-list { display: grid; gap: 2.7mm; }
+
+      .contact-item {
+        display: grid;
+        grid-template-columns: 5.8mm 1fr;
+        gap: 1.1mm;
+        align-items: center;
+        font-size: 7.55pt;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-icon {
+        display: grid;
+        width: 4.4mm;
+        height: 4.4mm;
+        place-items: center;
+        color: #fff;
+        font-size: 6pt;
+        font-weight: 800;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      .icon-sprite {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      .contact-icon .icon {
+        width: 2.65mm;
+        height: 2.65mm;
+        stroke-width: 2.15;
+      }
+
+      .skill-list { display: grid; gap: 2.15mm; }
+      .skill-list li,
+      .mini-list li {
+        position: relative;
+        padding-left: 3.4mm;
+        font-size: 7.75pt;
+        line-height: 1.42;
+      }
+
+      .skill-list li::before,
+      .mini-list li::before {
+        position: absolute;
+        top: .58em;
+        left: 0;
+        width: 1.25mm;
+        height: 1.25mm;
+        content: "";
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .skill-label {
+        display: block;
+        font-weight: 800;
+        letter-spacing: .05mm;
+      }
+
+      .mini-list { display: grid; gap: 1.4mm; }
+
+      .main-section {
+        position: relative;
+        margin: 0 0 5.6mm;
+        padding-left: 8mm;
+      }
+
+      .main-section::before {
+        position: absolute;
+        top: 4.7mm;
+        bottom: -5.2mm;
+        left: 3.25mm;
+        width: .38mm;
+        content: "";
+        background: #92a1b3;
+      }
+
+      .main-section:last-child::before { bottom: 4mm; }
+
+      .section-title {
+        position: relative;
+        display: flex;
+        gap: 3.2mm;
+        align-items: center;
+        margin: 0 0 2.5mm;
+        padding-bottom: 1.55mm;
+        font-size: 12.1pt;
+        border-bottom: .42mm solid var(--line);
+      }
+
+      .section-icon {
+        display: grid;
+        flex: 0 0 7.2mm;
+        width: 7.2mm;
+        height: 7.2mm;
+        margin-left: -8mm;
+        place-items: center;
+        color: #fff;
+        letter-spacing: 0;
+        border-radius: 50%;
+        background: var(--ink);
+        box-shadow: 0 0 0 1.2mm var(--paper);
+      }
+
+      .section-icon .icon {
+        width: 4.15mm;
+        height: 4.15mm;
+        stroke-width: 2.05;
+      }
+
+      .profile-copy {
+        margin: 0;
+        font-size: 8.4pt;
+        line-height: 1.49;
+      }
+
+      .experience {
+        margin: 0 0 4.45mm;
+      }
+
+      .experience:last-child { margin-bottom: 0; }
+
+      .experience-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 4mm;
+        align-items: baseline;
+      }
+
+      .job-title {
+        margin: 0;
+        font-size: 9.15pt;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .period {
+        margin: 0;
+        color: var(--ink);
+        font-size: 7.35pt;
+        font-weight: 800;
+        letter-spacing: .1mm;
+        line-height: 1.25;
+        text-align: right;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .company {
+        margin: .2mm 0 1.15mm;
+        color: var(--muted);
+        font-size: 7.9pt;
+        font-weight: 600;
+      }
+
+      .job-copy {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .job-copy li {
+        position: relative;
+        padding-left: 3.2mm;
+        margin: 0 0 .7mm;
+        font-size: 7.6pt;
+        line-height: 1.32;
+      }
+
+      .job-copy li::before {
+        position: absolute;
+        top: .55em;
+        left: 0;
+        width: 1.15mm;
+        height: 1.15mm;
+        content: "";
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .job-copy li:last-child { margin-bottom: 0; }
+
+      .sub-role {
+        display: inline-block;
+        margin: 1.35mm 0 .9mm;
+        padding: .55mm 1.7mm;
+        color: #166b7b;
+        font-size: 6.85pt;
+        font-weight: 800;
+        letter-spacing: .14mm;
+        text-transform: uppercase;
+        border-radius: 1.1mm;
+        background: var(--soft-accent);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2mm;
+      }
+
+      .project {
+        min-height: 14.2mm;
+        padding: 2.2mm 2.6mm 2.1mm;
+        border: .25mm solid #ccd5de;
+        border-top: 1mm solid var(--accent);
+        background: #fff;
+      }
+
+      .project h3 {
+        margin: 0 0 .7mm;
+        font-size: 7.85pt;
+        line-height: 1.2;
+      }
+
+      .project p {
+        margin: 0;
+        color: #536176;
+        font-size: 6.9pt;
+        line-height: 1.32;
+      }
+
+      .formation-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1.5mm 4mm;
+        align-items: baseline;
+      }
+
+      .formation-grid strong {
+        font-size: 8pt;
+        line-height: 1.2;
+      }
+
+      .formation-grid span {
+        color: var(--muted);
+        font-size: 7.25pt;
+        line-height: 1.28;
+      }
+
+      .formation-grid .detail {
+        grid-column: 1 / -1;
+        margin-top: -1.1mm;
+        font-size: 7.3pt;
+      }
+
+      .certifications {
+        display: flex;
+        gap: 2.2mm;
+        flex-wrap: wrap;
+        margin-top: 2.4mm;
+      }
+
+      .cert {
+        padding: .85mm 1.65mm;
+        color: #46546a;
+        font-size: 6.75pt;
+        font-weight: 700;
+        border: .25mm solid #ced7e0;
+        border-radius: 1mm;
+        background: #fff;
+      }
+
+      .footer {
+        position: absolute;
+        right: 10.5mm;
+        bottom: 3.8mm;
+        color: #8994a4;
+        font-size: 6.2pt;
+        letter-spacing: .22mm;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Lucide icon set: embedded for a crisp, offline-safe PDF export. -->
+    <svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol>
+        <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></symbol>
+        <symbol id="icon-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></symbol>
+        <symbol id="icon-briefcase" viewBox="0 0 24 24"><path d="M12 12h.01" /><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M22 13a18.15 18.15 0 0 1-20 0" /><rect width="20" height="14" x="2" y="6" rx="2" /></symbol>
+        <symbol id="icon-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" /><path d="M8 10v4" /><path d="M12 10v2" /><path d="M16 10v6" /></symbol>
+        <symbol id="icon-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+      </defs>
+    </svg>
+    <article class="cv" aria-label="CV de Hamza Boufass">
+      <header class="header">
+        <h1 class="name">HAMZA BOUFASS</h1>
+        <p class="role">UX/UI DESIGNER · DIGITAL DESIGNER</p>
+        <div class="header-note">Interfaces web · Design graphique · IA</div>
+      </header>
+
+      <div class="portrait">
+        <img src="./public/media/projects/hamza-profile.webp" alt="Portrait de Hamza Boufass" />
+      </div>
+
+      <aside class="sidebar">
+        <section class="side-section">
+          <h2 class="side-title">Contact</h2>
+          <ul class="contact-list">
+            <li class="contact-item"><span class="contact-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-phone" /></svg></span><span>+212 722 890 405</span></li>
+            <li class="contact-item"><span class="contact-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-mail" /></svg></span><span>hamzaboufass17@gmail.com</span></li>
+            <li class="contact-item"><span class="contact-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-map-pin" /></svg></span><span>Sidi Bernoussi, Casablanca</span></li>
+            <li class="contact-item"><span class="contact-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-linkedin" /></svg></span><span>LinkedIn · Hamza Boufass</span></li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Compétences</h2>
+          <ul class="skill-list">
+            <li><span class="skill-label">Design produit</span>Figma, wireframes, prototypes et design systems</li>
+            <li><span class="skill-label">Design graphique</span>Illustrator, Photoshop, supports print et réseaux sociaux</li>
+            <li><span class="skill-label">Web &amp; IA</span>React, TypeScript, Tailwind CSS, Codex et Claude Code</li>
+            <li><span class="skill-label">3D &amp; mouvement</span>Spline 3D, animation et montage vidéo</li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Langues</h2>
+          <ul class="mini-list">
+            <li>Français · courant (C1)</li>
+            <li>Anglais · courant</li>
+            <li>Arabe · langue maternelle</li>
+          </ul>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Forces</h2>
+          <ul class="mini-list">
+            <li>Curiosité et apprentissage continu</li>
+            <li>Autonomie, organisation et esprit d'équipe</li>
+            <li>Communication client et sens du détail</li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="main-section">
+          <h2 class="section-title"><span class="section-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-user-round" /></svg></span>Profil</h2>
+          <p class="profile-copy">
+            UX/UI Designer et Digital Designer, je transforme des besoins métier en interfaces, présentations et outils de production clairs. Je combine Figma, design graphique, développement web et IA pour livrer des expériences utiles, soignées et rapides à faire évoluer.
+          </p>
+        </section>
+
+        <section class="main-section">
+          <h2 class="section-title"><span class="section-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-briefcase" /></svg></span>Expérience</h2>
+
+          <article class="experience">
+            <div class="experience-head">
+              <h3 class="job-title">Digital Designer</h3>
+              <p class="period">CDI · Depuis avril 2026</p>
+            </div>
+            <p class="company">BILL APP · Casablanca</p>
+            <ul class="job-copy">
+              <li>Conception d'interfaces web, de systèmes de composants et de supports commerciaux.</li>
+              <li>Collaboration sur le site BILL APP : V1 sous WordPress, puis design system V2 en Next.js SSR et Sanity.</li>
+            </ul>
+            <span class="sub-role">Stage · octobre 2025 — avril 2026</span>
+            <ul class="job-copy">
+              <li>Création de pitch decks, recherches UX/UI et outils Figma pour accélérer la production de l'équipe.</li>
+            </ul>
+          </article>
+
+          <article class="experience">
+            <div class="experience-head">
+              <h3 class="job-title">UI Designer &amp; Infographiste · Stage</h3>
+              <p class="period">Juillet 2025 — octobre 2025</p>
+            </div>
+            <p class="company">OLFACTIVE · Casablanca</p>
+            <ul class="job-copy">
+              <li>Première expérience Figma : maquettes et petites évolutions du site pour Orange.</li>
+              <li>Visuels et supports d'impression pour Déco Bec, ainsi que contenus de communication.</li>
+            </ul>
+          </article>
+
+          <article class="experience">
+            <div class="experience-head">
+              <h3 class="job-title">Fondateur &amp; Responsable</h3>
+              <p class="period">2021 — juin 2025</p>
+            </div>
+            <p class="company">CASA STICKERS · Freelance</p>
+            <ul class="job-copy">
+              <li>Conception et vente d'autocollants et d'affiches personnalisés ; branding, boutique et relation client.</li>
+            </ul>
+          </article>
+
+          <article class="experience">
+            <div class="experience-head">
+              <h3 class="job-title">Télévendeur</h3>
+              <p class="period">Juin — novembre 2021</p>
+            </div>
+            <p class="company">CAPITAL HUMAIN CALL</p>
+            <ul class="job-copy">
+              <li>Accompagnement des clients dans le choix de formations adaptées à leur solde CPF.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="main-section">
+          <h2 class="section-title"><span class="section-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-folder-kanban" /></svg></span>Projets clés</h2>
+          <div class="project-grid">
+            <article class="project">
+              <h3>Export PDF Slides</h3>
+              <p>Plugin Figma qui exporte, compresse et fusionne les slides en PDF léger à partager.</p>
+            </article>
+            <article class="project">
+              <h3>BILL Design</h3>
+              <p>Plugin Figma : slides, mockups, automatisations et assistant IA pour les designers.</p>
+            </article>
+            <article class="project">
+              <h3>Site web BILL APP</h3>
+              <p>V1 réalisée avec WordPress ; V2 en design system Next.js SSR et Sanity, en validation.</p>
+            </article>
+            <article class="project">
+              <h3>Morocco Franchise Exhibition</h3>
+              <p>Identité visuelle et conception graphique du stand BILL APP, avec le designer du stand.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="main-section">
+          <h2 class="section-title"><span class="section-icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#icon-graduation-cap" /></svg></span>Formation &amp; certifications</h2>
+          <div class="formation-grid">
+            <strong>Licence en informatique · Base de données</strong><span>2022 — 2025</span>
+            <span class="detail">Faculté des Sciences Ben M'Sik · Casablanca</span>
+          </div>
+          <div class="certifications">
+            <span class="cert">Google · Foundations of User Experience (UX) Design · 2025</span>
+            <span class="cert">Cisco Networking Academy · Computer Hardware Basics · 2025</span>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">CV · Hamza Boufass</footer>
+    </article>
+  </body>
+</html>

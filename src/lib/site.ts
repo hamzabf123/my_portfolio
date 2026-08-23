@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Hamza Boufass",
   title: "UX/UI Designer & Digital Designer",
   tagline: "Des expériences digitales claires, créatives et utiles.",
-  location: "Sidi Bernoussi, Casablanca, Maroc",
+  location: { fr: "Sidi Bernoussi, Casablanca, Maroc", en: "Sidi Bernoussi, Casablanca, Morocco" },
   email: "hamzaboufass17@gmail.com",
   github: "",
   linkedIn: "",

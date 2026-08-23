@@ -1,60 +1,89 @@
-/**
- * Copy for /about. This page must NOT reuse the homepage About/Experience
- * sections — it exists to say things the homepage does not.
- */
+import type { LocalizedText } from "@/lib/i18n";
 
-export const aboutIntro = [
-  "I build web and mobile products, mostly in React, Next.js and React Native, and I have been doing it full time since August 2023 at DI Solutions in Surat. Nine of the things I have worked on are in production right now, across four platforms and clients in three countries.",
-  "I got here the unglamorous way — starting on interfaces, then following the problems underneath them. A screen that had to stay responsive on cheap Android hardware taught me more about rendering than any tutorial did. A calendar that had to agree with Google, Apple and Microsoft at the same time taught me that most hard frontend problems are actually data problems in a costume.",
-  "What I am doing now is the part I find most interesting: making products legible to AI systems rather than bolting a chat box onto them. On ByDesign that meant designing Model Context Protocol tools with schemas tight enough that a model picks the right one without guessing — which turns out to be a product design problem as much as an engineering one.",
+export const aboutIntro: LocalizedText[] = [
+  {
+    fr: "Je conçois des interfaces, des identités visuelles et des expériences web qui rendent les idées plus claires et plus faciles à utiliser.",
+    en: "I design interfaces, visual identities and web experiences that make ideas clearer and easier to use.",
+  },
+  {
+    fr: "Mon travail relie UX/UI design, direction visuelle et intégration web. Je passe du wireframe au prototype, puis au produit final avec la même attention portée au détail.",
+    en: "My work connects UX/UI design, visual direction and web integration. I move from wireframe to prototype and then to the final product with the same attention to detail.",
+  },
+  {
+    fr: "Chez BILL APP, je travaille sur des interfaces, des supports de présentation, des projets web et des outils qui accélèrent les workflows créatifs grâce à l'automatisation et à l'IA.",
+    en: "At BILL APP, I work on interfaces, presentation materials, web projects and tools that accelerate creative workflows through automation and AI.",
+  },
 ];
 
 export interface WorkPrinciple {
-  title: string;
-  description: string;
+  title: LocalizedText;
+  description: LocalizedText;
 }
 
 export const howIWork: WorkPrinciple[] = [
   {
-    title: "I scope by what breaks first",
-    description:
-      "Before writing anything I look for the constraint that will decide the architecture — a payment flow that cannot double-charge, a widget that cannot call an API, a sync that cannot duplicate. Build around that, and the rest of the decisions get easier. Guess at it, and you rewrite.",
+    title: { fr: "Je commence par le vrai problème", en: "I start with the real problem" },
+    description: {
+      fr: "Avant de choisir une direction visuelle, je clarifie le besoin, le public et la contrainte qui peut réellement faire réussir ou échouer le projet.",
+      en: "Before choosing a visual direction, I clarify the need, the audience and the constraint that can genuinely make the project succeed or fail.",
+    },
   },
   {
-    title: "Ship the thin version, then deepen it",
-    description:
-      "I would rather have a narrow feature in production this sprint than a complete one in review next month. Real usage tells you which half of the plan was wrong, and it tells you cheaply.",
+    title: { fr: "Je rends les idées visibles rapidement", en: "I make ideas visible quickly" },
+    description: {
+      fr: "Les wireframes et les prototypes permettent de tester une intention tôt, d'aligner les équipes et d'éviter de polir une mauvaise solution.",
+      en: "Wireframes and prototypes make it possible to test an idea early, align teams and avoid polishing the wrong solution.",
+    },
   },
   {
-    title: "One source of truth, always",
-    description:
-      "Most bugs I have chased were the same fact written down twice and allowed to drift. I put shared data in one place and read from it everywhere, even when duplicating it would be faster today.",
+    title: { fr: "Je garde une source de vérité", en: "I keep one source of truth" },
+    description: {
+      fr: "Un langage visuel cohérent, des composants réutilisables et des contenus structurés rendent le produit plus simple à faire évoluer.",
+      en: "A coherent visual language, reusable components and structured content make a product easier to evolve.",
+    },
   },
   {
-    title: "I ask clients about their worst day, not their best",
-    description:
-      "Demos are easy. What matters is the restaurant at 7pm on a Friday, or the event check-in on bad hotel wifi. I ask about those early because they set the performance budget, and they are the requirements nobody writes down.",
+    title: { fr: "Je conçois pour la vraie utilisation", en: "I design for real use" },
+    description: {
+      fr: "Je prends en compte le contexte, le rythme, les appareils et les contraintes de production pour que l'expérience reste utile au-delà de la maquette.",
+      en: "I account for context, pace, devices and production constraints so the experience stays useful beyond the mockup.",
+    },
   },
   {
-    title: "Native where the platform demands it, shared everywhere else",
-    description:
-      "Cross-platform is a means, not a principle. Widgets, notifications and calendar permissions are genuinely native work. I draw that line deliberately rather than fighting an abstraction that was never going to hold.",
+    title: { fr: "J'utilise les bons outils au bon moment", en: "I use the right tools at the right time" },
+    description: {
+      fr: "Figma, le code, l'automatisation et l'IA ont chacun leur rôle. Je les combine quand ils améliorent réellement la qualité ou la vitesse du travail.",
+      en: "Figma, code, automation and AI each have their place. I combine them when they genuinely improve quality or speed.",
+    },
   },
   {
-    title: "I say what I do not know",
-    description:
-      "If I have not measured something, I do not claim it. That applies to estimates, to performance numbers, and to what I personally built versus what a teammate did.",
+    title: { fr: "Je reste précis sur ce qui est livré", en: "I stay precise about what ships" },
+    description: {
+      fr: "Je distingue clairement une idée, un prototype, une fonctionnalité validée et un élément prêt pour la production.",
+      en: "I clearly distinguish an idea, a prototype, a validated feature and something ready for production.",
+    },
   },
 ];
 
 export const currentlyLearning = {
-  asOf: "August 2026",
+  asOf: { fr: "Août 2026", en: "August 2026" },
   items: [
-    "Deepening MCP server design and agent tool architecture — specifically how tool granularity affects model accuracy",
-    "Server components and streaming SSR, and where they actually beat a client-rendered app",
-    "Measuring rather than guessing: Core Web Vitals, real-device profiling, and treating LCP as a budget rather than a score",
-  ],
+    {
+      fr: "Approfondir les workflows IA et les outils qui rendent la production design plus rapide sans perdre le contrôle créatif.",
+      en: "Deepening AI workflows and tools that make design production faster without losing creative control.",
+    },
+    {
+      fr: "Renforcer mes pratiques d'intégration Next.js, React et TypeScript pour transformer des systèmes visuels en interfaces solides.",
+      en: "Strengthening my Next.js, React and TypeScript integration practice to turn visual systems into robust interfaces.",
+    },
+    {
+      fr: "Mesurer davantage la performance, l'accessibilité et la qualité perçue sur de vrais appareils.",
+      en: "Measuring performance, accessibility and perceived quality more deliberately on real devices.",
+    },
+  ] as LocalizedText[],
 };
 
-export const beyondCode =
-  "I live and work in Surat, Gujarat. Outside of building things, I am the person who reads the changelog of an app I use daily and has opinions about it. I work with clients across the US, Taiwan and India, which means my week has an odd shape and a lot of timezone maths — a habit that has quietly made me better at building software that respects other people's clocks.";
+export const beyondCode: LocalizedText = {
+  fr: "Je travaille depuis Casablanca avec une curiosité constante pour les outils, les images et les nouvelles façons de construire. J'aime comprendre comment une idée devient un objet visuel, une interface puis une expérience réellement utilisée.",
+  en: "I work from Casablanca with a constant curiosity for tools, images and new ways of building. I enjoy understanding how an idea becomes a visual object, then an interface and finally an experience people actually use.",
+};

@@ -3,6 +3,7 @@
 import Reveal from "@/components/motion/Reveal";
 import { currentFocus, journeyMilestones } from "@/data/journey";
 import JourneyMilestoneItem from "./JourneyMilestoneItem";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const gradientText = {
   backgroundImage:
@@ -13,6 +14,7 @@ const gradientText = {
 } as const;
 
 export default function Journey() {
+  const { locale } = useLanguage();
   return (
     <section
       id="journey"
@@ -28,7 +30,7 @@ export default function Journey() {
               variant="left"
               className="mb-4 text-[10px] uppercase tracking-widest text-accent-cyan/80"
             >
-              My Journey
+              {locale === "fr" ? "Mon parcours" : "My journey"}
             </Reveal>
 
             <Reveal
@@ -38,11 +40,11 @@ export default function Journey() {
               id="journey-heading"
               className="text-[32px] font-semibold leading-[1.15] tracking-[-0.02em] text-foreground md:text-[40px] lg:text-[56px]"
             >
-              From Curiosity
+              {locale === "fr" ? "De la curiosité" : "From curiosity"}
               <br />
-              to Building
+              {locale === "fr" ? "à la création" : "to building"}
               <br />
-              <span style={gradientText}>AI Products</span>.
+              <span style={gradientText}>{locale === "fr" ? "de produits IA" : "AI products"}</span>.
             </Reveal>
 
             <Reveal
@@ -51,9 +53,9 @@ export default function Journey() {
               delay={0.12}
               className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground lg:mx-0 lg:max-w-none"
             >
-              I started with curiosity, discovered programming, and gradually
-              evolved into building production-ready web, mobile and AI-powered
-              applications that solve real business problems.
+              {locale === "fr"
+                ? "J'ai commencé par la curiosité, puis le design et le web m'ont progressivement conduit vers la création d'expériences digitales utiles et prêtes à être utilisées."
+                : "I started with curiosity, then design and the web gradually led me toward building useful digital experiences that are ready for real use."}
             </Reveal>
 
             <Reveal
@@ -62,19 +64,19 @@ export default function Journey() {
               className="mt-10 border-t border-border/50 pt-8"
             >
               <p className="text-sm font-medium text-foreground">
-                Current Focus
+                {locale === "fr" ? "Focus actuel" : "Current focus"}
               </p>
               <ul className="mt-4 space-y-2">
                 {currentFocus.map((item) => (
                   <li
-                    key={item}
+                    key={item.fr}
                     className="flex items-center justify-center gap-2.5 text-base text-muted-foreground lg:justify-start"
                   >
                     <span
                       className="h-1 w-1 shrink-0 rounded-full bg-muted-foreground/60"
                       aria-hidden
                     />
-                    {item}
+                    {item[locale]}
                   </li>
                 ))}
               </ul>
@@ -87,7 +89,7 @@ export default function Journey() {
             variant="rise"
             delay={0.1}
             className="relative mx-auto w-full max-w-lg list-none lg:mx-0 lg:max-w-none"
-            aria-label="Career milestones"
+            aria-label={locale === "fr" ? "Étapes du parcours" : "Career milestones"}
           >
             {journeyMilestones.map((milestone, index) => (
               <JourneyMilestoneItem

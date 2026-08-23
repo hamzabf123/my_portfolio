@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+
 const TECH_BADGES = [
   {
     label: "Figma",
@@ -52,11 +56,18 @@ function TechBadge({
 }
 
 export default function HeroPortrait() {
+  const { locale } = useLanguage();
+  const badges = TECH_BADGES.map((badge) =>
+    badge.label === "Design & IA"
+      ? { ...badge, label: locale === "fr" ? "Design & IA" : "Design & AI" }
+      : badge
+  );
+
   return (
     <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[min(100%,300px)] lg:max-w-[min(100%,360px)] xl:max-w-[min(100%,400px)] [@media(min-height:900px)]:lg:max-w-[min(100%,420px)]">
       {/* Desktop — all badges above portrait */}
       <div className="pointer-events-none absolute inset-0 z-20 hidden lg:block">
-        {TECH_BADGES.map((badge) => (
+        {badges.map((badge) => (
           <div
             key={badge.label}
             className={`absolute z-20 ${badge.className}`}
@@ -109,7 +120,7 @@ export default function HeroPortrait() {
         <div className="absolute inset-[5%] overflow-hidden rounded-full border border-border/30">
           <img
             src="/media/projects/hamza-profile.webp"
-            alt="Hamza Boufass — UX/UI Designer et Digital Designer"
+            alt={locale === "fr" ? "Hamza Boufass — UX/UI Designer et Digital Designer" : "Hamza Boufass — UX/UI Designer and Digital Designer"}
             className="h-full w-full object-cover object-top"
             loading="eager"
             decoding="async"

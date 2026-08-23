@@ -8,7 +8,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import { usePathname } from "next/navigation";
+import { defaultLocale, getPageTitle, type Locale } from "@/lib/i18n";
 
 type LanguageContextValue = {
   locale: Locale;
@@ -20,11 +21,30 @@ const STORAGE_KEY = "hamza-portfolio-locale";
 
 export default function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>(defaultLocale);
+  const pathname = usePathname();
 
   useEffect(() => {
     const savedLocale = window.localStorage.getItem(STORAGE_KEY);
     if (savedLocale === "fr" || savedLocale === "en") setLocale(savedLocale);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    const title = `${getPageTitle(locale, pathname)} | Hamza Boufass`;
+    const updateTitle = () => {
+      if (document.title !== title) document.title = title;
+    };
+
+    updateTitle();
+    const titleUpdate = window.setTimeout(updateTitle, 0);
+    const headObserver = new MutationObserver(updateTitle);
+    headObserver.observe(document.head, { childList: true, subtree: true, characterData: true });
+
+    return () => {
+      window.clearTimeout(titleUpdate);
+      headObserver.disconnect();
+    };
+  }, [locale, pathname]);
 
   const value = useMemo(
     () => ({

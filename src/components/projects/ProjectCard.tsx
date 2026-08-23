@@ -7,20 +7,25 @@ import type { Project } from "@/data/projects";
 import TechChips from "./TechChips";
 import ProjectMetaRow from "./ProjectMetaRow";
 import ProjectImage from "./ProjectImage";
+import { useLanguage } from "@/components/LanguageProvider";
+import { getProjectCopy, getProjectLabels } from "@/lib/projectLocale";
 
 interface ProjectCardProps {
   project: Project;
   index: number;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project: sourceProject, index }: ProjectCardProps) {
+  const { locale } = useLanguage();
+  const project = getProjectCopy(sourceProject, locale);
+  const labels = getProjectLabels(locale);
   const isAI = project.category === "AI";
   const imageFirst = index % 2 === 0;
   const isLive = project.status === "Production";
 
   /** One primary action; every external destination is a secondary link. */
   const externalLinks = [
-    project.links.live && { label: "Visit product", href: project.links.live },
+    project.links.live && { label: locale === "fr" ? "Visiter le produit" : "Visit product", href: project.links.live },
     project.links.appStore && {
       label: "App Store",
       href: project.links.appStore,
@@ -29,9 +34,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       label: "Google Play",
       href: project.links.playStore,
     },
-    project.links.source && { label: "Source code", href: project.links.source },
+    project.links.source && { label: locale === "fr" ? "Code source" : "Source code", href: project.links.source },
     project.links.confidentialPreview && {
-      label: "Aper\u00e7u V2 \u00b7 confidentiel",
+      label: locale === "fr" ? "Aper\u00e7u V2 \u00b7 confidentiel" : "Confidential preview",
       href: project.links.confidentialPreview,
       confidential: true,
     },
@@ -89,7 +94,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="flex w-full flex-col lg:w-[55%]">
           <div className="mb-5 flex flex-wrap items-center gap-2.5">
             <span className="rounded-full border border-border/70 px-3 py-1 text-xs font-medium text-foreground/80">
-              {project.category}
+              {labels.category[project.category]}
             </span>
             {project.client && (
               <span className="rounded-full border border-accent-cyan/25 bg-accent-cyan/10 px-3 py-1 text-xs font-medium text-accent-cyan">
@@ -98,7 +103,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
             {isAI && (
               <span className="rounded-full border border-border/50 bg-surface-2/60 px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-muted-foreground">
-                AI Powered
+                {locale === "fr" ? "Propulsé par l'IA" : "AI powered"}
               </span>
             )}
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-surface-2/60 px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-muted-foreground">
@@ -108,7 +113,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   isLive ? "bg-emerald-400/90" : "bg-muted-foreground/50"
                 }`}
               />
-              {isLive ? "Live" : project.status}
+              {isLive ? (locale === "fr" ? "En production" : "Live") : labels.status[project.status]}
             </span>
           </div>
 
@@ -176,7 +181,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={`/projects/${project.slug}`}
               className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors [transition-duration:250ms] hover:bg-foreground/90 sm:flex-none"
             >
-              Read case study
+              {locale === "fr" ? "Voir l'étude de cas" : "Read case study"}
               <ArrowUpRight size={14} className="opacity-70" />
             </Link>
 

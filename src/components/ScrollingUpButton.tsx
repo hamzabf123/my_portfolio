@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp } from "lucide-react";
 import { smoothScrollTo } from "@/lib/scrollTo";
+import { useLanguage } from "@/components/LanguageProvider";
+import { languageCopy } from "@/lib/i18n";
 
 const SCROLL_UP_THRESHOLD = 0.45;
 const SCROLL_DOWN_HIDE = 80;
@@ -20,6 +22,7 @@ const fadeSpring = {
 export default function ScrollButtons() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const { locale } = useLanguage();
 
   const [showScrollUp, setShowScrollUp] = useState(false);
   const [showScrollDown, setShowScrollDown] = useState(false);
@@ -83,7 +86,7 @@ export default function ScrollButtons() {
             <motion.button
               type="button"
               onClick={scrollToTop}
-              aria-label="Scroll to top"
+              aria-label={languageCopy[locale].scrollToTop}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.94 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
@@ -105,7 +108,7 @@ export default function ScrollButtons() {
             <motion.button
               type="button"
               onClick={scrollToContent}
-              aria-label="Scroll to content"
+              aria-label={languageCopy[locale].scrollToContent}
               whileHover={{ y: 2 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}

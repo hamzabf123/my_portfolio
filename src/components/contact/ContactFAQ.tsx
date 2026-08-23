@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import { ChevronDown } from "lucide-react";
 import { contactFAQ } from "@/data/contactFAQ";
+import { useLanguage } from "@/components/LanguageProvider";
 
 function FAQItem({
   question,
@@ -81,6 +82,7 @@ function FAQItem({
 
 export default function ContactFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { locale } = useLanguage();
 
   return (
     <section
@@ -97,7 +99,7 @@ export default function ContactFAQ() {
               id="faq-heading"
               className="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.02em] text-foreground"
             >
-              Common questions.
+              {locale === "fr" ? "Questions fréquentes." : "Common questions."}
             </h2>
           </Reveal>
 
@@ -105,8 +107,8 @@ export default function ContactFAQ() {
             {contactFAQ.map((item, index) => (
               <FAQItem
                 key={item.id}
-                question={item.question}
-                answer={item.answer}
+                question={item.question[locale]}
+                answer={item.answer[locale]}
                 isOpen={openIndex === index}
                 onToggle={() =>
                   setOpenIndex(openIndex === index ? null : index)

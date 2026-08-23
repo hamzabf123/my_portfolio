@@ -6,16 +6,38 @@ import Reveal from "@/components/motion/Reveal";
 import MaskReveal from "@/components/motion/MaskReveal";
 import { Eye, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { useLanguage } from "@/components/LanguageProvider";
+import type { LocalizedText } from "@/lib/i18n";
 
-const AVAILABILITY_ITEMS = [
-  "Full-Time Opportunities",
-  "Freelance Projects",
-  "AI Product Development",
-] as const;
+const AVAILABILITY_ITEMS: LocalizedText[] = [
+  { fr: "Opportunités à temps plein", en: "Full-time opportunities" },
+  { fr: "Projets freelance", en: "Freelance projects" },
+  { fr: "Développement de produits IA", en: "AI product development" },
+];
 
 const RESUME_URL = siteConfig.resumePath;
 
 export default function ContactHero() {
+  const { locale } = useLanguage();
+  const copy = locale === "fr"
+    ? {
+        eyebrow: "Contact",
+        firstLine: "Construisons quelque chose",
+        secondLine: "qui compte, ensemble.",
+        description: "Vous souhaitez créer une application augmentée par l'IA, une plateforme web solide ou une expérience mobile ? Parlons de votre idée.",
+        available: "Disponible pour",
+        email: "M'écrire",
+        cv: "Voir mon CV",
+      }
+    : {
+        eyebrow: "Contact",
+        firstLine: "Let's build something",
+        secondLine: "meaningful together.",
+        description: "Whether you want to build an AI-powered application, a scalable web platform or a mobile experience, I would love to hear about your idea.",
+        available: "Available for",
+        email: "Email me",
+        cv: "View my CV",
+      };
   return (
     <section
       aria-labelledby="contact-heading"
@@ -38,7 +60,7 @@ export default function ContactHero() {
             variant="down"
             className="relative mb-5 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground"
           >
-            Contact
+            {copy.eyebrow}
           </Reveal>
 
           <MaskReveal
@@ -47,10 +69,10 @@ export default function ContactHero() {
             className="relative text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-foreground"
           >
             <span className="line-mask">
-              <span>Let&apos;s Build Something</span>
+              <span>{copy.firstLine}</span>
             </span>
             <span className="line-mask">
-              <span>Meaningful Together.</span>
+              <span>{copy.secondLine}</span>
             </span>
           </MaskReveal>
 
@@ -60,9 +82,7 @@ export default function ContactHero() {
             delay={0.12}
             className="relative mt-6 max-w-[640px] text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed"
           >
-            Whether you&apos;re looking to build an AI-powered application, a
-            scalable web platform, or a cross-platform mobile experience,
-            I&apos;d love to hear about your idea.
+            {copy.description}
           </Reveal>
 
           <Reveal
@@ -75,17 +95,17 @@ export default function ContactHero() {
                 className="h-2 w-2 shrink-0 rounded-full bg-emerald-400"
                 aria-hidden
               />
-              Available for
+              {copy.available}
             </span>
             <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
               {AVAILABILITY_ITEMS.map((item, index) => (
-                <span key={item} className="inline-flex items-center gap-3">
+                <span key={item.fr} className="inline-flex items-center gap-3">
                   {index > 0 && (
                     <span className="text-border-hover" aria-hidden>
                       •
                     </span>
                   )}
-                  <span>{item}</span>
+                  <span>{item[locale]}</span>
                 </span>
               ))}
             </span>
@@ -102,7 +122,7 @@ export default function ContactHero() {
                 className="inline-flex h-12 w-full min-w-[160px] items-center justify-center gap-2 rounded-xl bg-foreground px-6 text-sm font-medium text-background transition-colors duration-300 hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
               >
                 <Mail size={16} strokeWidth={1.75} aria-hidden />
-                Email Me
+                {copy.email}
               </Link>
             </motion.div>
 
@@ -114,7 +134,7 @@ export default function ContactHero() {
                 className="inline-flex h-12 w-full min-w-[160px] items-center justify-center gap-2 rounded-xl border border-border/80 bg-transparent px-6 text-sm font-medium text-foreground transition-all duration-300 hover:border-border-hover hover:bg-surface-2/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-hover focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
               >
                 <Eye size={16} strokeWidth={1.75} aria-hidden />
-                View my CV
+                {copy.cv}
               </Link>
             </motion.div>
           </Reveal>

@@ -1,8 +1,11 @@
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { useLanguage } from "@/components/LanguageProvider";
+import { languageCopy } from "@/lib/i18n";
 
 const SocialsMenu = () => {
+  const { locale } = useLanguage();
   const socials = [
     { href: `mailto:${siteConfig.email}`, label: "Email", icon: Mail },
     ...(siteConfig.instagram ? [{ href: siteConfig.instagram, label: "Instagram", icon: Instagram }] : []),
@@ -11,7 +14,7 @@ const SocialsMenu = () => {
   ];
 
   return (
-    <nav aria-label="Social links">
+    <nav aria-label={languageCopy[locale].socialLinks}>
       <ul className="flex space-x-6">
         {socials.map(({ href, label, icon: Icon }) => (
           <li key={label} className="link-subtle">

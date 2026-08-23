@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { ContactCardData } from "@/data/contactCards";
+import { useLanguage } from "@/components/LanguageProvider";
 
 interface ContactCardProps {
   card: ContactCardData;
@@ -12,6 +13,7 @@ interface ContactCardProps {
 
 export default function ContactCard({ card, index }: ContactCardProps) {
   const Icon = card.icon;
+  const { locale } = useLanguage();
 
   return (
     <motion.article
@@ -33,7 +35,7 @@ export default function ContactCard({ card, index }: ContactCardProps) {
       />
 
       <h3 className="mt-5 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-        {card.title}
+        {card.title[locale]}
       </h3>
 
       {card.value && (
@@ -43,16 +45,16 @@ export default function ContactCard({ card, index }: ContactCardProps) {
               href={card.href!}
               className="transition-colors duration-200 hover:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-hover focus-visible:ring-offset-2 focus-visible:ring-offset-surface-1 rounded-sm"
             >
-              {card.value}
+              {card.value[locale]}
             </Link>
           ) : (
-            card.value
+            card.value[locale]
           )}
         </p>
       )}
 
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base">
-        {card.description}
+        {card.description[locale]}
       </p>
 
       {card.type === "link" && card.href && card.buttonLabel && (
@@ -62,7 +64,7 @@ export default function ContactCard({ card, index }: ContactCardProps) {
           rel="noopener noreferrer"
           className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-lg border border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-all duration-300 hover:border-border-hover hover:bg-surface-2/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-hover focus-visible:ring-offset-2 focus-visible:ring-offset-surface-1"
         >
-          {card.buttonLabel}
+          {card.buttonLabel[locale]}
           <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />
         </Link>
       )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
-import type { Locale } from "@/lib/i18n";
+import { languageCopy, type Locale } from "@/lib/i18n";
 
 const languages: { value: Locale; label: string }[] = [
   { value: "fr", label: "FR" },
@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
   return (
     <div
       className="inline-flex rounded-lg border border-border/70 bg-surface-1/70 p-0.5 text-[11px] font-semibold tracking-wide"
-      aria-label="Language selector"
+      aria-label={languageCopy[locale].languageSelector}
     >
       {languages.map(({ value, label }) => (
         <button

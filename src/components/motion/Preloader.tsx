@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/site";
 import { isStaticTier } from "@/lib/motion";
 import { markReady, PRELOADER_DURATION_MS } from "@/lib/preloader";
+import { useLanguage } from "@/components/LanguageProvider";
+import { languageCopy } from "@/lib/i18n";
 
 /**
  * The intro: a full-screen count from 00 to 100, then the curtain splits and
@@ -19,6 +21,7 @@ import { markReady, PRELOADER_DURATION_MS } from "@/lib/preloader";
  *  - a CSS failsafe removes it after 4s even if this component never runs.
  */
 export default function Preloader() {
+  const { locale } = useLanguage();
   const [active, setActive] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const [count, setCount] = useState(0);
@@ -71,7 +74,7 @@ export default function Preloader() {
       role="status"
       aria-live="polite"
     >
-      <span className="sr-only">Loading</span>
+      <span className="sr-only">{languageCopy[locale].loading}</span>
 
       {/* Two panels that split apart to reveal the page. */}
       <div className="preloader__panel preloader__panel--top" aria-hidden />

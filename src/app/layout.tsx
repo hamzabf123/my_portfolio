@@ -12,6 +12,7 @@ import ScrollProvider from "@/components/motion/ScrollProvider";
 import Preloader from "@/components/motion/Preloader";
 import AmbientBackground from "@/components/motion/AmbientBackground";
 import LanguageProvider from "@/components/LanguageProvider";
+import SkipLink from "@/components/SkipLink";
 import { Inter, JetBrains_Mono } from "next/font/google";
 
 const inter = Inter({
@@ -51,10 +52,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased page-shell`}
       >
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
         <LanguageProvider>
+          <SkipLink />
           <AmbientBackground />
           <Preloader />
           <MotionProvider>

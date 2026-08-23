@@ -55,7 +55,7 @@ export default function Experience() {
               <div className="min-w-0">
                 <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">{primaryExperience.title}</h3>
                 <p className="mt-2 text-base font-medium text-foreground/90">{primaryExperience.company}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{primaryExperience.location}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{primaryExperience.location[locale]}</p>
               </div>
             </div>
             <div className="flex shrink-0 flex-col gap-3 lg:min-w-[210px] lg:text-right">
@@ -123,7 +123,7 @@ export default function Experience() {
                       {experience.title}
                     </h3>
                     <p className="mt-2 text-base font-medium text-foreground/90">{experience.company}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{experience.location}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{experience.location[locale]}</p>
                   </div>
                 </div>
                 <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">

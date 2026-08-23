@@ -1,21 +1,26 @@
+"use client";
+
 import type { Project } from "@/data/projects";
+import { useLanguage } from "@/components/LanguageProvider";
+import { getProjectLabels } from "@/lib/projectLocale";
 
 interface ProjectMetaRowProps {
   project: Project;
 }
 
 export default function ProjectMetaRow({ project }: ProjectMetaRowProps) {
+  const { locale } = useLanguage();
+  const labels = getProjectLabels(locale);
   const items = [
-    project.role && { label: "Role", value: project.role },
-    { label: "Platform", value: project.platforms.join(" · ") },
-    { label: "Year", value: project.year },
-    project.client && { label: "Client", value: project.client },
+    project.role && { label: labels.role, value: project.role },
+    {
+      label: locale === "fr" ? "Plateforme" : "Platform",
+      value: project.platforms.map((platform) => labels.platform[platform]).join(" · "),
+    },
+    { label: labels.year, value: project.year },
+    project.client && { label: labels.client, value: project.client },
   ].filter(Boolean) as { label: string; value: string }[];
 
-  /**
-   * A label above its value, not an inline run separated by dots — dots wrap to
-   * the start of a line and read as orphaned punctuation.
-   */
   return (
     <dl className="grid grid-cols-2 gap-x-8 gap-y-4">
       {items.map((item) => (

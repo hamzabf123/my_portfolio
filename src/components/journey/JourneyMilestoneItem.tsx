@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { JourneyMilestone } from "@/data/journey";
+import { useLanguage } from "@/components/LanguageProvider";
 
 interface JourneyMilestoneItemProps {
   milestone: JourneyMilestone;
@@ -14,6 +15,7 @@ export default function JourneyMilestoneItem({
   index,
   isLast,
 }: JourneyMilestoneItemProps) {
+  const { locale } = useLanguage();
   return (
     <motion.li
       initial={{ opacity: 0, y: 16 }}
@@ -42,11 +44,11 @@ export default function JourneyMilestoneItem({
       )}
 
       <h3 className="text-xl font-semibold tracking-tight text-foreground">
-        {milestone.title}
+        {milestone.title[locale]}
       </h3>
 
       <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-        {milestone.description}
+        {milestone.description[locale]}
       </p>
     </motion.li>
   );

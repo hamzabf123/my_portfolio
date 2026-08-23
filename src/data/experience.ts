@@ -12,7 +12,7 @@ export const primaryExperience = {
   title: "Digital Designer",
   company: "BILL APP",
   companyUrl: "",
-  location: "Casablanca, Maroc",
+  location: { fr: "Casablanca, Maroc", en: "Casablanca, Morocco" },
   logo: "/media/projects/bill-app-logo.webp",
   logoAlt: "Logo BILL APP",
   periods: [
@@ -59,7 +59,7 @@ export const additionalExperiences = [
   {
     title: "UI Designer & Infographiste",
     company: "Olfactive",
-    location: "Casablanca, Maroc",
+    location: { fr: "Casablanca, Maroc", en: "Casablanca, Morocco" },
     logo: "/media/projects/olfactive-logo.webp",
     logoAlt: "Logo Olfactive",
     employmentType: { fr: "Stage", en: "Internship" },

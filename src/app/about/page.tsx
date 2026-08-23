@@ -1,6 +1,7 @@
-import { redirect } from "next/navigation";
 import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
+import AboutIntro from "@/components/about/AboutIntro";
+import Journey from "@/components/journey/Journey";
 
 export const metadata = createPageMetadata({
   title: `Profil | ${siteConfig.name}`,
@@ -10,5 +11,10 @@ export const metadata = createPageMetadata({
 });
 
 export default function AboutPage() {
-  redirect("/#about");
+  return (
+    <main className="w-full overflow-x-clip">
+      <AboutIntro />
+      <Journey />
+    </main>
+  );
 }

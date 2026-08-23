@@ -3,8 +3,13 @@
 import Reveal from "@/components/motion/Reveal";
 import { contactCards } from "@/data/contactCards";
 import ContactCard from "./ContactCard";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function ContactCards() {
+  const { locale } = useLanguage();
+  const copy = locale === "fr"
+    ? { information: "Informations de contact", eyebrow: "Échangeons", description: "Choisissez le canal qui vous convient le mieux. Chaque message reçoit une réponse attentive." }
+    : { information: "Contact information", eyebrow: "Get in touch", description: "Choose the channel that works best for you. Every message gets a thoughtful reply." };
   return (
     <section
       aria-labelledby="contact-cards-heading"
@@ -16,14 +21,13 @@ export default function ContactCards() {
             id="contact-cards-heading"
             className="sr-only"
           >
-            Contact Information
+            {copy.information}
           </h2>
           <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Get in touch
+            {copy.eyebrow}
           </p>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-            Choose the channel that works best for you. Every message gets a
-            thoughtful reply.
+            {copy.description}
           </p>
         </Reveal>
 

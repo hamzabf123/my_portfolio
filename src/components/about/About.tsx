@@ -61,7 +61,7 @@ export default function About() {
             <div className="mt-10 border-t border-border/50 pt-8">
               <p className="text-sm font-medium text-foreground">{siteConfig.name}</p>
               <p className="mt-1 text-sm text-muted-foreground">{text.role}</p>
-              <p className="mt-0.5 text-sm text-muted-foreground">{siteConfig.location}</p>
+              <p className="mt-0.5 text-sm text-muted-foreground">{siteConfig.location[locale]}</p>
             </div>
           </Reveal>
 

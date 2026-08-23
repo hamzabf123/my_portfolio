@@ -5,6 +5,7 @@ import { ArrowUpRight, LockKeyhole } from "lucide-react";
 import type { Project } from "@/data/projects";
 import ProjectImage from "./ProjectImage";
 import { useLanguage } from "@/components/LanguageProvider";
+import { getProjectCopy, getProjectLabels } from "@/lib/projectLocale";
 
 interface StackedProjectCardProps {
   project: Project;
@@ -20,16 +21,18 @@ interface StackedProjectCardProps {
  * a stacking deck whose cards are taller than the screen cannot stack.
  */
 export default function StackedProjectCard({
-  project,
+  project: sourceProject,
   index,
 }: StackedProjectCardProps) {
   const { locale } = useLanguage();
+  const project = getProjectCopy(sourceProject, locale);
+  const labels = getProjectLabels(locale);
   const copy = locale === "fr"
     ? { caseStudy: "Voir le projet", visit: "Visiter le site", confidential: "Aper\u00e7u V2 \u00b7 confidentiel" }
     : { caseStudy: "Read case study", visit: "Visit site", confidential: "Confidential preview" };
   const badges = project.metrics?.length
     ? project.metrics.slice(0, 3).map((m) => `${m.value} ${m.label}`)
-    : [project.status, ...project.platforms.slice(0, 2)];
+    : [labels.status[project.status], ...project.platforms.slice(0, 2).map((platform) => labels.platform[platform])];
 
   return (
     <article className="h-[clamp(380px,56vh,480px)] overflow-hidden rounded-3xl border border-border/60 bg-surface-1 shadow-[0_18px_52px_rgba(0,0,0,0.26)]">
@@ -56,7 +59,7 @@ export default function StackedProjectCard({
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-              {project.category}
+              {labels.category[project.category]}
             </span>
             {project.client && (
               <span className="rounded-full border border-accent-cyan/25 bg-accent-cyan/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-accent-cyan">

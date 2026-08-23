@@ -6,6 +6,7 @@ import { ArrowUpRight, LockKeyhole } from "lucide-react";
 import type { Project } from "@/data/projects";
 import ProjectImage from "./ProjectImage";
 import { useLanguage } from "@/components/LanguageProvider";
+import { getProjectCopy, getProjectLabels } from "@/lib/projectLocale";
 
 interface FeaturedProjectCardProps {
   project: Project;
@@ -13,17 +14,19 @@ interface FeaturedProjectCardProps {
 }
 
 export default function FeaturedProjectCard({
-  project,
+  project: sourceProject,
   index,
 }: FeaturedProjectCardProps) {
   const { locale } = useLanguage();
+  const project = getProjectCopy(sourceProject, locale);
+  const labels = getProjectLabels(locale);
   const copy = locale === "fr"
     ? { live: "Visiter le site", caseStudy: "Voir le projet", confidential: "V2 \u00b7 confidentiel" }
     : { live: "Visit site", caseStudy: "Read case study", confidential: "Confidential" };
   /** Card badges come from the data, never from literals in JSX. */
   const badges = project.metrics?.length
     ? project.metrics.slice(0, 3).map((m) => `${m.value} ${m.label}`)
-    : [project.status, ...project.platforms.slice(0, 2)];
+    : [labels.status[project.status], ...project.platforms.slice(0, 2).map((platform) => labels.platform[platform])];
 
   return (
     <motion.article
@@ -45,7 +48,7 @@ export default function FeaturedProjectCard({
       <div className="flex flex-1 flex-col pt-3 sm:pt-4">
         <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
           <span className="text-[10px] uppercase tracking-wider text-accent-cyan/80">
-            {project.category}
+            {labels.category[project.category]}
           </span>
           {project.client && (
             <span className="rounded-full border border-accent-cyan/25 bg-accent-cyan/10 px-1.5 py-0.5 text-[9px] font-medium tracking-wide text-accent-cyan">

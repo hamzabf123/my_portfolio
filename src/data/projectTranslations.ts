@@ -99,7 +99,7 @@ export const projectEnglishTranslations: Record<string, ProjectEnglishTranslatio
       context: { heading: "Context", body: ["I contributed to BILL APP's V1 website with my internship supervisor. The project was built with WordPress and Elementor to present digitalisation solutions for the restaurant industry."] },
       problem: { heading: "Why evolve the website", body: ["As we explored new AI-assisted ways of working, we found that Elementor could limit the speed of iteration, component quality and long-term product flexibility."] },
       contribution: { heading: "My contribution", body: ["I contributed interface work on V1, then helped design the components for V2. This new foundation uses Next.js with SSR and Sanity to make the site more modular and better suited to the team's pace."], bullets: ["Collaborated on the WordPress V1 with my internship supervisor", "Designed interface components for V2", "Contributed to a more modular approach with Next.js SSR and Sanity"] },
-      outcome: { heading: "Current status", body: ["V1 remains publicly viewable. V2 is in a component validation phase; its preview is intentionally marked as confidential on this portfolio."] },
+      outcome: { heading: "Current status", body: ["V1 remains publicly viewable. V2 is in a component validation phase."] },
     },
     gallery: [
       { alt: "Client testimonials on the BILL APP website", caption: "A testimonial section designed to strengthen social proof." },

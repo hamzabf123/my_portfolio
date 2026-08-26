@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, LockKeyhole } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 import ProjectImage from "./ProjectImage";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -21,8 +21,8 @@ export default function FeaturedProjectCard({
   const project = getProjectCopy(sourceProject, locale);
   const labels = getProjectLabels(locale);
   const copy = locale === "fr"
-    ? { live: "Visiter le site", caseStudy: "Voir le projet", confidential: "V2 \u00b7 confidentiel" }
-    : { live: "Visit site", caseStudy: "Read case study", confidential: "Confidential" };
+    ? { live: "Visiter le site", caseStudy: "Voir le projet" }
+    : { live: "Visit site", caseStudy: "Read case study" };
   /** Card badges come from the data, never from literals in JSX. */
   const badges = project.metrics?.length
     ? project.metrics.slice(0, 3).map((m) => `${m.value} ${m.label}`)
@@ -103,17 +103,6 @@ export default function FeaturedProjectCard({
               >
                 {copy.live}
                 <ArrowUpRight size={13} className="shrink-0" />
-              </Link>
-            )}
-            {project.links.confidentialPreview && (
-              <Link
-                href={project.links.confidentialPreview}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-full items-center justify-center gap-1.5 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 text-xs font-medium text-amber-200 transition-colors hover:border-amber-300/50 hover:bg-amber-400/15 lg:h-9 lg:flex-1"
-              >
-                <LockKeyhole size={12} className="shrink-0" />
-                {copy.confidential}
               </Link>
             )}
             <Link

@@ -44,7 +44,6 @@ export interface Project {
     appStore?: string;
     playStore?: string;
     source?: string;
-    confidentialPreview?: string;
   };
   metrics?: ProjectMetric[];
   caseStudy?: CaseStudy;
@@ -346,7 +345,6 @@ const allProjects: Project[] = [
     ],
     links: {
       live: "https://www.bill-app.fr/",
-      confidentialPreview: "https://design-system-bill-siteweb-high-fid.vercel.app/playground",
     },
     caseStudy: {
       context: {
@@ -375,7 +373,7 @@ const allProjects: Project[] = [
       outcome: {
         heading: "Statut actuel",
         body: [
-          "La V1 reste consultable publiquement. La V2 est dans une phase de validation des composants ; son aper\u00e7u est volontairement indiqu\u00e9 comme confidentiel sur ce portfolio.",
+          "La V1 reste consultable publiquement. La V2 est dans une phase de validation des composants.",
         ],
       },
     },

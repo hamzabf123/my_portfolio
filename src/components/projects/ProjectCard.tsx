@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, LockKeyhole } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import type { Project } from "@/data/projects";
 import TechChips from "./TechChips";
 import ProjectMetaRow from "./ProjectMetaRow";
@@ -35,11 +35,6 @@ export default function ProjectCard({ project: sourceProject, index }: ProjectCa
       href: project.links.playStore,
     },
     project.links.source && { label: locale === "fr" ? "Code source" : "Source code", href: project.links.source },
-    project.links.confidentialPreview && {
-      label: locale === "fr" ? "Aper\u00e7u V2 \u00b7 confidentiel" : "Confidential preview",
-      href: project.links.confidentialPreview,
-      confidential: true,
-    },
   ].filter(Boolean) as { label: string; href: string; confidential?: boolean }[];
 
   return (
@@ -197,7 +192,6 @@ export default function ProjectCard({ project: sourceProject, index }: ProjectCa
                     : "border-border/80 text-muted-foreground hover:border-border-hover hover:bg-surface-2/50 hover:text-foreground"
                 }`}
               >
-                {link.confidential && <LockKeyhole size={13} className="opacity-75" />}
                 {link.label}
                 <ArrowUpRight size={14} className="opacity-60" />
               </Link>

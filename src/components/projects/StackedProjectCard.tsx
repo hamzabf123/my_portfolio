@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, LockKeyhole } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 import ProjectImage from "./ProjectImage";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -28,8 +28,8 @@ export default function StackedProjectCard({
   const project = getProjectCopy(sourceProject, locale);
   const labels = getProjectLabels(locale);
   const copy = locale === "fr"
-    ? { caseStudy: "Voir le projet", visit: "Visiter le site", confidential: "Aper\u00e7u V2 \u00b7 confidentiel" }
-    : { caseStudy: "Read case study", visit: "Visit site", confidential: "Confidential preview" };
+    ? { caseStudy: "Voir le projet", visit: "Visiter le site" }
+    : { caseStudy: "Read case study", visit: "Visit site" };
   const badges = project.metrics?.length
     ? project.metrics.slice(0, 3).map((m) => `${m.value} ${m.label}`)
     : [labels.status[project.status], ...project.platforms.slice(0, 2).map((platform) => labels.platform[platform])];
@@ -121,17 +121,6 @@ export default function StackedProjectCard({
               </Link>
             )}
 
-            {project.links.confidentialPreview && (
-              <Link
-                href={project.links.confidentialPreview}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-amber-400/30 bg-amber-400/10 px-4 text-sm font-medium text-amber-200 transition-colors hover:border-amber-300/50 hover:bg-amber-400/15"
-              >
-                <LockKeyhole size={13} className="opacity-75" />
-                {copy.confidential}
-              </Link>
-            )}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, LockKeyhole } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getProjectCopy, getProjectLabels } from "@/lib/projectLocale";
 import { caseStudySectionOrder, hasCaseStudyContent, type CaseStudySection, type Project } from "@/data/projects";
@@ -87,7 +87,6 @@ export default function ProjectCaseStudy({ project: sourceProject, prev: sourceP
     project.links.appStore && { label: "App Store", href: project.links.appStore },
     project.links.playStore && { label: "Google Play", href: project.links.playStore },
     project.links.source && { label: locale === "fr" ? "Code source" : "Source", href: project.links.source },
-    project.links.confidentialPreview && { label: locale === "fr" ? "Aperçu V2 · confidentiel" : "Confidential preview", href: project.links.confidentialPreview, confidential: true },
   ].filter(Boolean) as { label: string; href: string; confidential?: boolean }[];
 
   return (
@@ -153,7 +152,7 @@ export default function ProjectCaseStudy({ project: sourceProject, prev: sourceP
 
         {project.images.gallery?.length ? <section className="mt-16 md:mt-20"><h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">{locale === "fr" ? "Galerie" : "Gallery"}</h2><div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">{project.images.gallery.map((shot) => <figure key={shot.src}><div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border/50 bg-surface-2 p-2"><ProjectImage src={shot.src} alt={shot.alt} sizes="(max-width: 640px) 100vw, 50vw" className="rounded-lg" /></div><figcaption className="mt-3 text-sm text-muted-foreground">{shot.caption}</figcaption></figure>)}</div></section> : null}
 
-        {links.length > 0 && <div className="mt-14 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-16">{links.map((link, index) => <Link key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={["inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-lg px-5 py-2.5 text-sm font-medium transition-colors", index === 0 ? "bg-foreground text-background hover:bg-foreground/90" : link.confidential ? "border border-amber-400/30 bg-amber-400/10 text-amber-200 hover:border-amber-300/50 hover:bg-amber-400/15" : "border border-border/80 text-foreground hover:border-border-hover hover:bg-surface-2/50"].join(" ")}>{link.confidential && <LockKeyhole size={13} className="opacity-75" />}{link.label}<ArrowUpRight size={14} className="opacity-70" /></Link>)}</div>}
+        {links.length > 0 && <div className="mt-14 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-16">{links.map((link, index) => <Link key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={["inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-lg px-5 py-2.5 text-sm font-medium transition-colors", index === 0 ? "bg-foreground text-background hover:bg-foreground/90" : "border border-border/80 text-foreground hover:border-border-hover hover:bg-surface-2/50"].join(" ")}>{link.label}<ArrowUpRight size={14} className="opacity-70" /></Link>)}</div>}
 
         <nav aria-label={locale === "fr" ? "Navigation entre les projets" : "Project navigation"} className="mt-16 grid grid-cols-1 gap-4 border-t border-border/40 pt-10 sm:grid-cols-2 md:mt-20">
           {prev && <Link href={`/projects/${prev.slug}`} className="group rounded-xl border border-border/50 bg-surface-1 p-5 transition-colors hover:border-border-hover"><span className="flex items-center gap-1.5 text-xs text-muted-foreground"><ArrowLeft size={14} />{locale === "fr" ? "Précédent" : "Previous"}</span><span className="mt-2 block font-medium text-foreground">{prev.name}</span></Link>}

@@ -45,4 +45,4 @@ export function createPageMetadata({
   };
 }
 
-export const defaultDescription = `${siteConfig.title} based in Casablanca. UX/UI design, graphic design and modern web integration enhanced by AI workflows.`;
+export const defaultDescription = `${siteConfig.title}, Casablanca. Licence informatique (bases de données), design produit chez BILL APP. Recherche un master en alternance à Lyon (septembre 2027) : Product Owner, chef de projet digital et IA.`;

@@ -12,16 +12,16 @@ const copy = {
     titleStart: "Concevoir avec",
     titleAccent: "intention",
     description:
-      "UX/UI Designer et infographiste créatif, je conçois des univers visuels et des interfaces centrées sur l’utilisateur. Mon approche relie réflexion stratégique, précision graphique et intégration web pour faire avancer une idée jusqu’à une expérience concrète.",
-    role: "UX/UI Designer & Digital Designer",
+      "Formé en informatique et en bases de données, j’ai construit mon métier dans le design produit chez BILL APP. Je cadre un besoin, je le rends visible avec des maquettes et des prototypes, puis je le livre avec l’équipe, en code ou avec l’IA.",
+    role: "Product Designer & Product Builder IA",
   },
   en: {
     eyebrow: "Profile",
     titleStart: "Designing with",
     titleAccent: "intention",
     description:
-      "As a UX/UI Designer and creative graphic designer, I craft visual worlds and user-centred interfaces. My approach combines strategic thinking, graphic precision and web integration to turn an idea into a tangible experience.",
-    role: "UX/UI Designer & Digital Designer",
+      "Trained in computer science and databases, I built my practice in product design at BILL APP. I frame a need, make it visible through mockups and prototypes, then ship it with the team, in code or with AI.",
+    role: "Product Designer & AI Product Builder",
   },
 } as const;
 
@@ -43,7 +43,7 @@ export default function About() {
               <span
                 className="text-foreground"
                 style={{
-                  backgroundImage: "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(187 85% 75%) 100%)",
+                  backgroundImage: "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(38 95% 72%) 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",

@@ -8,11 +8,11 @@ const TECH_BADGES = [
     className: "top-[2%] left-[0%] lg:top-[4%] lg:-left-[2%]",
   },
   {
-    label: "Illustrator",
+    label: "Claude Code",
     className: "top-[2%] right-[0%] lg:top-[4%] lg:-right-[2%]",
   },
   {
-    label: "Photoshop",
+    label: "SQL",
     className: "top-[36%] -left-[6%] lg:top-[38%] lg:-left-[10%]",
   },
   {
@@ -20,15 +20,15 @@ const TECH_BADGES = [
     className: "top-[36%] -right-[2%] lg:top-[38%] lg:-right-[6%]",
   },
   {
-    label: "Tailwind CSS",
+    label: "Next.js",
     className: "bottom-[14%] left-[0%] lg:bottom-[16%] lg:-left-[2%]",
   },
   {
-    label: "Spline 3D",
+    label: "Remotion",
     className: "bottom-[14%] right-[0%] lg:bottom-[16%] lg:-right-[2%]",
   },
   {
-    label: "Design & IA",
+    label: "Produit & IA",
     className: "bottom-[0%] left-1/2 -translate-x-1/2 lg:bottom-[2%]",
     compact: true,
   },
@@ -58,8 +58,8 @@ function TechBadge({
 export default function HeroPortrait() {
   const { locale } = useLanguage();
   const badges = TECH_BADGES.map((badge) =>
-    badge.label === "Design & IA"
-      ? { ...badge, label: locale === "fr" ? "Design & IA" : "Design & AI" }
+    badge.label === "Produit & IA"
+      ? { ...badge, label: locale === "fr" ? "Produit & IA" : "Product & AI" }
       : badge
   );
 
@@ -98,7 +98,7 @@ export default function HeroPortrait() {
           className="absolute inset-[10%] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, hsl(187 85% 53% / 0.1) 0%, hsl(258 90% 66% / 0.06) 50%, transparent 70%)",
+              "radial-gradient(circle, hsl(38 95% 60% / 0.1) 0%, hsl(248 85% 70% / 0.06) 50%, transparent 70%)",
           }}
         />
 
@@ -107,7 +107,7 @@ export default function HeroPortrait() {
           className="absolute inset-0 rounded-full p-px"
           style={{
             background:
-              "conic-gradient(from 0deg, hsl(187 85% 53% / 0.2), hsl(258 90% 66% / 0.12), transparent 45%, hsl(187 85% 53% / 0.15))",
+              "conic-gradient(from 0deg, hsl(38 95% 60% / 0.2), hsl(248 85% 70% / 0.12), transparent 45%, hsl(38 95% 60% / 0.15))",
           }}
         >
           <div className="h-full w-full rounded-full bg-background/85" />
@@ -120,7 +120,7 @@ export default function HeroPortrait() {
         <div className="absolute inset-[5%] overflow-hidden rounded-full border border-border/30">
           <img
             src="/media/projects/hamza-profile.webp"
-            alt={locale === "fr" ? "Hamza Boufass — UX/UI Designer et Digital Designer" : "Hamza Boufass — UX/UI Designer and Digital Designer"}
+            alt={locale === "fr" ? "Hamza Boufass — Product Designer et Product Builder IA" : "Hamza Boufass — Product Designer and AI Product Builder"}
             className="h-full w-full object-cover object-top"
             loading="eager"
             decoding="async"

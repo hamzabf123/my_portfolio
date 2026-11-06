@@ -1,4 +1,4 @@
-import { Brain, Code2, Layout, Presentation, type LucideIcon } from "lucide-react";
+import { Brain, Code2, Layout, Rocket, type LucideIcon } from "lucide-react";
 import type { LocalizedText } from "@/lib/i18n";
 
 export interface Contribution {
@@ -30,12 +30,12 @@ export const primaryExperience = {
   ],
   employmentType: { fr: "CDI", en: "Permanent role" },
   duration: {
-    fr: "Depuis 3 mois · après un stage de 6 mois d’octobre à avril",
-    en: "3 months to date · after a 6-month internship from October to April",
+    fr: "Depuis avril 2026 · après un stage de 6 mois d’octobre à avril",
+    en: "Since April 2026 · after a 6-month internship from October to April",
   },
   description: {
-    fr: "Je participe à la digitalisation 360 du secteur de la restauration : interfaces web, supports de présentation, refonte de site, automatisations créatives et exploration d’outils IA pour fluidifier les workflows.",
-    en: "I contribute to the 360° digitalisation of the restaurant sector through web interfaces, presentation materials, website redesigns, creative automation and AI-tool exploration to streamline workflows.",
+    fr: "Je participe à la digitalisation 360 de la restauration : interfaces web, outils internes avec IA, refonte de site, et lancement de RU$H, une nouvelle marque de caisse pour les petits commerces, du cadrage aux contenus.",
+    en: "I contribute to the 360° digitalisation of the restaurant sector: web interfaces, internal AI tools, a website redesign, and the launch of RU$H, a new POS brand for small businesses, from framing to content.",
   },
   technologies: [
     "Figma",
@@ -49,7 +49,7 @@ export const primaryExperience = {
   ],
   impact: [
     { fr: "Maquettes et wireframes", en: "Wireframes and interfaces" },
-    { fr: "Supports de présentation", en: "Presentation materials" },
+    { fr: "Lancement produit RU$H", en: "RU$H product launch" },
     { fr: "Refonte web moderne", en: "Modern web redesign" },
     { fr: "Automatisation créative", en: "Creative automation" },
   ],
@@ -96,13 +96,13 @@ export const contributions: Contribution[] = [
     icon: Layout,
   },
   {
-    id: "presentations",
-    title: { fr: "Présentations clients", en: "Client presentations" },
+    id: "product-launch",
+    title: { fr: "Lancement produit", en: "Product launch" },
     description: {
-      fr: "Conception de pitch decks, slides et supports visuels pour les rendez-vous clients.",
-      en: "Designing pitch decks, slides and visual assets for client meetings.",
+      fr: "Cadrage, benchmark, offre, design system, landing page et contenus de la marque RU$H.",
+      en: "Framing, benchmark, offer, design system, landing page and content for the RU$H brand.",
     },
-    icon: Presentation,
+    icon: Rocket,
   },
   {
     id: "web",
@@ -117,8 +117,8 @@ export const contributions: Contribution[] = [
     id: "ai",
     title: { fr: "Outils IA & automatisation", en: "AI tools & automation" },
     description: {
-      fr: "Exploration d’outils et de plugins pour accélérer les processus de création au quotidien.",
-      en: "Exploring tools and plugins that speed up everyday creative processes.",
+      fr: "Plugins Figma avec agent IA et automatisations utilisés chaque jour par l’équipe.",
+      en: "Figma plugins with an AI agent and automations used daily by the team.",
     },
     icon: Brain,
   },

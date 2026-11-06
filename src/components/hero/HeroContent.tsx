@@ -11,26 +11,26 @@ import { TIER_FULL, TIER_LITE } from "@/lib/motion";
 
 const copy = {
   fr: {
-    availability: "Disponible pour des collaborations créatives",
+    availability: "Master en alternance · Lyon · septembre 2027",
     greeting: "Bonjour, je suis",
-    role: "UX/UI Designer & Digital Designer",
-    tagline: "Je transforme les idées en expériences digitales claires, créatives et utiles.",
+    role: "Product Designer & Product Builder IA",
+    tagline: "Je transforme un besoin métier en produit livré : cadrage, design, web et IA.",
     description:
-      "Designer chez BILL APP, je relie UX/UI, identité visuelle et intégration web moderne pour créer des produits qui ont une vraie présence.",
-    projects: "Voir le projet",
+      "Licencié en informatique (bases de données) et designer chez BILL APP, je prépare un master en alternance pour évoluer vers Product Owner ou chef de projet digital et IA.",
+    projects: "Voir les projets",
     contact: "Me contacter",
-    highlights: ["UX/UI & prototypage", "Identité visuelle", "Intégration web", "Workflows IA"],
+    highlights: ["Cadrage produit", "UX/UI & prototypage", "Web & bases de données", "Workflows IA"],
   },
   en: {
-    availability: "Available for creative collaborations",
+    availability: "Work-study master’s · Lyon · September 2027",
     greeting: "Hi, I’m",
-    role: "UX/UI Designer & Digital Designer",
-    tagline: "I turn ideas into clear, creative and useful digital experiences.",
+    role: "Product Designer & AI Product Builder",
+    tagline: "I turn a business need into a shipped product: framing, design, web and AI.",
     description:
-      "As a designer at BILL APP, I connect UX/UI, visual identity and modern web integration to create products with a strong presence.",
-    projects: "View the project",
+      "With a bachelor’s in computer science (databases) and a design role at BILL APP, I am preparing a work-study master’s to grow into a Product Owner or digital & AI project manager.",
+    projects: "View projects",
     contact: "Get in touch",
-    highlights: ["UX/UI & prototyping", "Visual identity", "Web integration", "AI workflows"],
+    highlights: ["Product framing", "UX/UI & prototyping", "Web & databases", "AI workflows"],
   },
 } as const;
 
@@ -91,7 +91,7 @@ export default function HeroContent() {
             className="text-[clamp(2rem,5vw,4.25rem)] leading-[1.1] md:text-[clamp(2.25rem,4vw,4rem)] lg:text-[clamp(2.5rem,3.5vw,4.75rem)] [@media(max-height:800px)]:lg:text-[clamp(2rem,3vw,3.5rem)]"
             style={{
               backgroundImage:
-                "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(187 85% 75%) 55%, hsl(258 90% 78%) 100%)",
+                "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(38 95% 72%) 55%, hsl(248 85% 80%) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

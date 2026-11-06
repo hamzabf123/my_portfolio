@@ -15,8 +15,8 @@ const Header = () => {
   const { locale } = useLanguage();
   const copy =
     locale === "fr"
-      ? { home: "Accueil", profile: "Profil", experience: "Parcours", contact: "Me contacter", close: "Fermer le menu", open: "Ouvrir le menu" }
-      : { home: "Home", profile: "Profile", experience: "Experience", contact: "Contact me", close: "Close menu", open: "Open menu" };
+      ? { home: "Accueil", profile: "Profil", work: "Projets", alternance: "Alternance", experience: "Parcours", contact: "Me contacter", close: "Fermer le menu", open: "Ouvrir le menu" }
+      : { home: "Home", profile: "Profile", work: "Projects", alternance: "Work-study", experience: "Experience", contact: "Contact me", close: "Close menu", open: "Open menu" };
 
   useEffect(() => {
     setMenuOpen(false);
@@ -89,6 +89,16 @@ const Header = () => {
                     className="nav-link block"
                   >
                     {copy.profile}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#work" className="nav-link block">
+                    {copy.work}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#alternance" className="nav-link block">
+                    {copy.alternance}
                   </Link>
                 </li>
                 <li>

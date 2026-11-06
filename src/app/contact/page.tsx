@@ -12,9 +12,9 @@ export const metadata = createPageMetadata({
   ogImage: "/profile.jpg",
   keywords: [
     "Contact Hamza Boufass",
-    "UX/UI Designer Contact",
+    "Product Designer Contact",
     "Graphic Designer Contact",
-    "Digital Designer Casablanca",
+    "Alternance Lyon 2027",
   ],
 });
 

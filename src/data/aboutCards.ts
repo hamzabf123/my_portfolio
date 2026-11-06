@@ -1,4 +1,4 @@
-import { Brain, Layout, Palette, Puzzle, type LucideIcon } from "lucide-react";
+import { Brain, Database, Layout, Target, type LucideIcon } from "lucide-react";
 import type { LocalizedText } from "@/lib/i18n";
 
 export interface AboutCard {
@@ -10,38 +10,38 @@ export interface AboutCard {
 
 export const aboutCards: AboutCard[] = [
   {
+    id: "product",
+    title: { fr: "Cadrage produit", en: "Product framing" },
+    description: {
+      fr: "Problème, personas, benchmark, KPI et périmètre : je clarifie ce qu’il faut construire avant de le dessiner.",
+      en: "Problem, personas, benchmark, KPIs and scope: I clarify what to build before designing it.",
+    },
+    icon: Target,
+  },
+  {
     id: "ux-ui",
     title: { fr: "UX/UI Design", en: "UX/UI Design" },
     description: {
-      fr: "Wireframes, maquettes et prototypes interactifs pensés pour être intuitifs dès la première utilisation.",
-      en: "Wireframes, interfaces and interactive prototypes designed to feel intuitive from the first use.",
+      fr: "Wireframes, maquettes, prototypes et design systems dans Figma, pensés pour la vraie utilisation.",
+      en: "Wireframes, mockups, prototypes and design systems in Figma, designed for real use.",
     },
     icon: Layout,
   },
   {
-    id: "visual-design",
-    title: { fr: "Design graphique", en: "Graphic Design" },
+    id: "data-web",
+    title: { fr: "Web & bases de données", en: "Web & databases" },
     description: {
-      fr: "Identités visuelles, supports de communication et compositions qui donnent une voix cohérente à une marque.",
-      en: "Visual identities, communication materials and compositions that give a brand a consistent voice.",
+      fr: "Une licence en informatique spécialité bases de données, et une pratique de React, TypeScript, SQL et Supabase.",
+      en: "A computer science bachelor’s specialised in databases, and hands-on React, TypeScript, SQL and Supabase.",
     },
-    icon: Palette,
-  },
-  {
-    id: "web-integration",
-    title: { fr: "Intégration web", en: "Web Integration" },
-    description: {
-      fr: "Des interfaces traduites en expériences web modernes avec HTML/CSS, React, TypeScript et Tailwind CSS.",
-      en: "Interfaces translated into modern web experiences with HTML/CSS, React, TypeScript and Tailwind CSS.",
-    },
-    icon: Puzzle,
+    icon: Database,
   },
   {
     id: "ai-workflows",
-    title: { fr: "Workflows IA", en: "AI Workflows" },
+    title: { fr: "Produits & workflows IA", en: "AI products & workflows" },
     description: {
-      fr: "Une veille active et des outils IA intégrés avec intention pour accélérer la création sans perdre l’exigence du design.",
-      en: "Active research and intentional AI workflows that speed up creation without compromising design standards.",
+      fr: "Des plugins avec agent IA, des pipelines de contenus et Claude Code au quotidien, toujours sous contrôle humain.",
+      en: "Plugins with an AI agent, content pipelines and Claude Code every day, always with human review.",
     },
     icon: Brain,
   },

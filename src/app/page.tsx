@@ -1,4 +1,5 @@
 import About from "@/components/about/About";
+import Alternance from "@/components/alternance/Alternance";
 import HowIBuildProducts from "@/components/process/HowIBuildProducts";
 import Expertise from "@/components/expertise/Expertise";
 import Experience from "@/components/experience/Experience";
@@ -17,9 +18,11 @@ export const metadata = createPageMetadata({
   ogImage: "/profile.jpg",
   keywords: [
     siteConfig.title,
+    "Product Designer",
+    "Product Owner alternance",
+    "Chef de projet IA",
+    "MIAGE",
     "UX/UI Designer",
-    "Digital Designer",
-    "Graphic Designer",
     "Figma",
     "React",
     "AI workflows",
@@ -32,9 +35,10 @@ const Home = () => {
       <JsonLd data={personSchema()} />
       <Hero />
       <Statement />
+      <FeaturedProjects />
+      <Alternance />
       <About />
       <Experience />
-      <FeaturedProjects />
       <Expertise />
       <HowIBuildProducts />
     </main>

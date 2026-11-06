@@ -1,7 +1,7 @@
 /** Single source of truth for the projects shown on the portfolio. */
 
-export type Platform = "Web" | "Figma Plugin" | "Physical Space";
-export type Category = "AI" | "Design" | "Plugin" | "Web";
+export type Platform = "Web" | "Figma Plugin" | "Physical Space" | "Social Media";
+export type Category = "AI" | "Design" | "Plugin" | "Web" | "Product";
 export type Status = "Production" | "Completed" | "In validation";
 
 export interface CaseStudySection {
@@ -59,6 +59,97 @@ export interface Project {
 
 const allProjects: Project[] = [
   {
+    slug: "rush",
+    name: "RU$H",
+    tagline: "Cadrage, design et lancement d’une nouvelle marque de caisse pour les cafés et snacks au Maroc",
+    summary:
+      "Sous-marque de BILL APP : cadrage produit, benchmark, design system, landing page et contenus de lancement, avec l’IA.",
+    category: "Product",
+    featured: true,
+    order: 1,
+    role: "Product Designer & Product Builder",
+    platforms: ["Web", "Social Media"],
+    year: "Novembre 2026",
+    status: "In validation",
+    client: "BILL APP",
+    stack: ["PRD", "Figma", "Design system", "Remotion", "Claude Code"],
+    highlights: [
+      "Cadrage produit : problème, personas, KPI et périmètre de l’offre",
+      "Benchmark des concurrents et grille tarifaire validée par la direction",
+      "Design system Figma : 103 variables, styles et composants maîtres",
+      "Landing page V2, posts Figma et Reel vidéo produit avec Remotion",
+    ],
+    links: {},
+    caseStudy: {
+      context: {
+        heading: "Contexte",
+        body: [
+          "BILL APP accompagne surtout des franchises et des réseaux, avec des cycles de vente longs. Les cafés, snacks et petits commerces au Maroc restaient mal servis : les solutions étaient soit trop lourdes, soit trop simples et sans accompagnement.",
+          "RU$H est la réponse : une sous-marque autonome, « powered by Bill-App », qui propose une caisse simple, installée et accompagnée en français et en darija. J’ai porté le projet de bout en bout, du cadrage aux contenus de lancement.",
+        ],
+      },
+      problem: {
+        heading: "Le problème à résoudre",
+        body: [
+          "Un gérant de snack n’a pas le temps pour des rendez-vous techniques : il doit comprendre l’offre en quelques secondes, faire confiance à une marque inconnue et pouvoir décider vite.",
+          "Il fallait donc une offre claire, une marque crédible dès le premier jour et un parcours qui transforme le trafic venu d’Instagram ou de TikTok en conversation commerciale.",
+        ],
+      },
+      contribution: {
+        heading: "Ma démarche",
+        body: [
+          "J’ai travaillé par sprints courts, en documentant chaque décision pour l’équipe. Le projet est passé d’un premier bundle (borne, web app, fidélité) à une offre recentrée sur la caisse et le logiciel par abonnement, après analyse du marché.",
+        ],
+        bullets: [
+          "Cadrage : PRD, personas (le gérant pressé, la nouvelle entrepreneuse), KPI de conversion et de déploiement",
+          "Recherche : benchmark de Caisse Manager, Lacaisse.ma, Inyad, Tabesto et BILL, codage de 80 instants de vidéos concurrentes, étude des bornes et de l’affichage dynamique",
+          "Offre : construction d’une grille tarifaire comparée au marché, validée par la direction",
+          "Design : charte « Comptoir en feu », design system Figma (103 variables, 20 styles de texte, composants maîtres) et maquette d’interface de caisse",
+          "Web : landing page V1 puis V2 orientée conversion, responsive et accessible",
+          "Contenus : carrousels et posts Figma, storyboards de Reels et vidéo produit codée avec Remotion",
+          "Équipe : un espace projet partagé pour suivre l’analyse, le site, les posts et la vidéo en une page",
+        ],
+      },
+      challenges: {
+        heading: "L’IA dans mon workflow",
+        body: [
+          "J’ai utilisé Claude Code comme partenaire de production : recherche et synthèse concurrentielle, génération de pages et de scripts de rendu, contrôles qualité automatiques (contrastes, géométrie des écrans, cohérence des prix). Chaque sortie restait relue et arbitrée par moi.",
+          "Le plus important a été de garder une seule source de vérité. Quand l’offre a changé, j’ai recommandé d’archiver l’ancien PRD pour éviter que deux versions produisent des visuels contradictoires.",
+        ],
+      },
+      outcome: {
+        heading: "Où en est le projet",
+        body: [
+          "La grille tarifaire est validée, la landing V2 est en démonstration, et les premiers posts et le Reel sont prêts pour la revue. Prochaine étape : remplacer les visuels illustratifs par une vraie séance photo d’installation.",
+          "Ce projet résume le métier que je vise : comprendre un marché, cadrer un produit, le concevoir et le livrer avec une équipe, en m’appuyant sur l’IA.",
+        ],
+      },
+    },
+    images: {
+      card: "/media/projects/rush-1.webp",
+      hero: "/media/projects/rush-1.webp",
+      ogImage: "/media/projects/rush-1.webp",
+      gallery: [
+        {
+          src: "/media/projects/rush-2.webp",
+          alt: "Haut de la landing page RU$H V2 : « Le rush commence. Gardez la main. »",
+          caption: "Landing page V2 : une promesse courte, une scène de comptoir et des appels à l’action directs.",
+        },
+        {
+          src: "/media/projects/rush-3.webp",
+          alt: "Image du Reel RU$H « Tapez. » avec la caisse et l’imprimante",
+          caption: "Reel « Blaze Hour » (9:16, 20 s), animé avec Remotion.",
+        },
+        {
+          src: "/media/projects/rush-4.webp",
+          alt: "Post RU$H « 12:30. Gardez la main. » avec un serveur au comptoir",
+          caption: "Post social conçu dans Figma à partir du design system RU$H.",
+        },
+      ],
+    },
+    imageAlt: "Maquette de l’interface de caisse RU$H",
+  },
+  {
     slug: "morocco-franchise-exhibition",
     name: "Morocco Franchise Exhibition",
     tagline: "Identité visuelle et déploiement graphique du stand BILL APP",
@@ -66,7 +157,7 @@ const allProjects: Project[] = [
       "Un espace d’exposition conçu avec le designer du stand pour rendre l’univers et les solutions BILL lisibles à grande échelle.",
     category: "Design",
     featured: true,
-    order: 1,
+    order: 5,
     role: "Graphic Designer",
     platforms: ["Physical Space"],
     year: "2026",

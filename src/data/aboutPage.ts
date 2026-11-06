@@ -2,16 +2,16 @@ import type { LocalizedText } from "@/lib/i18n";
 
 export const aboutIntro: LocalizedText[] = [
   {
-    fr: "Je conçois des interfaces, des identités visuelles et des expériences web qui rendent les idées plus claires et plus faciles à utiliser.",
-    en: "I design interfaces, visual identities and web experiences that make ideas clearer and easier to use.",
+    fr: "Je suis Hamza, basé à Casablanca. J’ai une licence en informatique spécialité bases de données, et je travaille depuis 2025 dans le design produit chez BILL APP, une entreprise qui digitalise la restauration.",
+    en: "I’m Hamza, based in Casablanca. I hold a bachelor’s in computer science specialised in databases, and since 2025 I have worked in product design at BILL APP, a company digitalising the restaurant industry.",
   },
   {
-    fr: "Mon travail relie UX/UI design, direction visuelle et intégration web. Je passe du wireframe au prototype, puis au produit final avec la même attention portée au détail.",
-    en: "My work connects UX/UI design, visual direction and web integration. I move from wireframe to prototype and then to the final product with the same attention to detail.",
+    fr: "Mon rôle a grandi vite : maquettes et présentations au départ, puis des plugins Figma utilisés en production, un agent IA, et le lancement complet de la marque RU$H. Je suis passé du « comment le dessiner » au « quoi construire, pour qui, et pourquoi ».",
+    en: "My role grew quickly: mockups and presentations at first, then Figma plugins used in production, an AI agent, and the full launch of the RU$H brand. I moved from “how do we draw it” to “what should we build, for whom, and why”.",
   },
   {
-    fr: "Chez BILL APP, je travaille sur des interfaces, des supports de présentation, des projets web et des outils qui accélèrent les workflows créatifs grâce à l'automatisation et à l'IA.",
-    en: "At BILL APP, I work on interfaces, presentation materials, web projects and tools that accelerate creative workflows through automation and AI.",
+    fr: "C’est ce métier que je veux consolider : Product Owner, chef de projet digital ou IA. Je cherche pour cela un master en alternance qui allie informatique, gestion de projet et IA.",
+    en: "This is the role I want to grow into: Product Owner, digital or AI project manager. I am looking for a work-study master’s combining computer science, project management and AI.",
   },
 ];
 
@@ -66,19 +66,19 @@ export const howIWork: WorkPrinciple[] = [
 ];
 
 export const currentlyLearning = {
-  asOf: { fr: "Août 2026", en: "August 2026" },
+  asOf: { fr: "Novembre 2026", en: "November 2026" },
   items: [
     {
-      fr: "Approfondir les workflows IA et les outils qui rendent la production design plus rapide sans perdre le contrôle créatif.",
-      en: "Deepening AI workflows and tools that make design production faster without losing creative control.",
+      fr: "Gestion de produit : écrire des PRD, des user stories et des KPI qui guident vraiment une équipe.",
+      en: "Product management: writing PRDs, user stories and KPIs that genuinely guide a team.",
     },
     {
-      fr: "Renforcer mes pratiques d'intégration Next.js, React et TypeScript pour transformer des systèmes visuels en interfaces solides.",
-      en: "Strengthening my Next.js, React and TypeScript integration practice to turn visual systems into robust interfaces.",
+      fr: "Agilité et pilotage de projet : sprints, priorisation, suivi des livrables.",
+      en: "Agile and project delivery: sprints, prioritisation and tracking deliverables.",
     },
     {
-      fr: "Mesurer davantage la performance, l'accessibilité et la qualité perçue sur de vrais appareils.",
-      en: "Measuring performance, accessibility and perceived quality more deliberately on real devices.",
+      fr: "IA appliquée au produit : agents, automatisations et vidéo programmée (Remotion), avec une vraie relecture humaine.",
+      en: "AI applied to products: agents, automation and programmatic video (Remotion), with real human review.",
     },
   ] as LocalizedText[],
 };

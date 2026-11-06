@@ -7,7 +7,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 
 const gradientText = {
   backgroundImage:
-    "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(187 85% 75%) 100%)",
+    "linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(38 95% 72%) 100%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   backgroundClip: "text",

@@ -42,8 +42,8 @@ export function getProjectCopy(project: Project, locale: Locale): Project {
 export function getProjectLabels(locale: Locale) {
   return locale === "fr"
     ? {
-        category: { AI: "IA", Design: "Design", Plugin: "Plugin", Web: "Web" },
-        platform: { Web: "Web", "Figma Plugin": "Plugin Figma", "Physical Space": "Espace physique" },
+        category: { AI: "IA", Design: "Design", Plugin: "Plugin", Web: "Web", Product: "Produit" },
+        platform: { Web: "Web", "Figma Plugin": "Plugin Figma", "Physical Space": "Espace physique", "Social Media": "Réseaux sociaux" },
         status: { Production: "En production", Completed: "Terminé", "In validation": "En validation" },
         role: "Rôle",
         platforms: "Plateformes",
@@ -52,8 +52,8 @@ export function getProjectLabels(locale: Locale) {
         stack: "Technologies",
       }
     : {
-        category: { AI: "AI", Design: "Design", Plugin: "Plugin", Web: "Web" },
-        platform: { Web: "Web", "Figma Plugin": "Figma plugin", "Physical Space": "Physical space" },
+        category: { AI: "AI", Design: "Design", Plugin: "Plugin", Web: "Web", Product: "Product" },
+        platform: { Web: "Web", "Figma Plugin": "Figma plugin", "Physical Space": "Physical space", "Social Media": "Social media" },
         status: { Production: "In production", Completed: "Completed", "In validation": "In validation" },
         role: "Role",
         platforms: "Platforms",

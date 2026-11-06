@@ -1,4 +1,4 @@
-import { Brain, Code2, Layout, Palette, type LucideIcon } from "lucide-react";
+import { Brain, Code2, Layout, Target, type LucideIcon } from "lucide-react";
 import type { LocalizedText } from "@/lib/i18n";
 
 export interface ExpertiseCategory {
@@ -11,43 +11,43 @@ export interface ExpertiseCategory {
 
 export const expertiseCategories: ExpertiseCategory[] = [
   {
+    id: "product",
+    title: { fr: "Produit & gestion de projet", en: "Product & project management" },
+    description: {
+      fr: "Cadrer un besoin, analyser le marché, prioriser et suivre la livraison par sprints avec l’équipe.",
+      en: "Framing a need, analysing the market, prioritising and following delivery in sprints with the team.",
+    },
+    technologies: ["PRD", "Personas", "Benchmark", "KPI", "Sprints", "Roadmap"],
+    icon: Target,
+  },
+  {
     id: "ux-ui",
     title: { fr: "UX/UI Design", en: "UX/UI Design" },
     description: {
-      fr: "Des interfaces structurées, accessibles et agréables à utiliser, de la recherche au prototype interactif.",
-      en: "Structured, accessible and enjoyable interfaces, from research to interactive prototype.",
+      fr: "Des interfaces structurées et accessibles, de la recherche au prototype, avec un design system comme source de vérité.",
+      en: "Structured, accessible interfaces, from research to prototype, with a design system as the source of truth.",
     },
-    technologies: ["Figma", "Wireframes", "Prototypage", "Design systems"],
+    technologies: ["Figma", "Wireframes", "Prototypage", "Design systems", "Illustrator", "Photoshop"],
     icon: Layout,
   },
   {
-    id: "graphic-design",
-    title: { fr: "Design graphique", en: "Graphic Design" },
+    id: "web-data",
+    title: { fr: "Web & données", en: "Web & data" },
     description: {
-      fr: "Des compositions, identités et supports de communication qui traduisent une intention de marque avec impact.",
-      en: "Compositions, identities and communication materials that translate a brand intention with impact.",
+      fr: "Des maquettes livrées en interfaces réelles, et une base solide en modélisation et bases de données.",
+      en: "Mockups shipped as real interfaces, backed by a solid foundation in data modelling and databases.",
     },
-    technologies: ["Illustrator", "Photoshop", "Canva", "Branding"],
-    icon: Palette,
-  },
-  {
-    id: "web-integration",
-    title: { fr: "Intégration web", en: "Web Integration" },
-    description: {
-      fr: "Des maquettes fidèlement mises en mouvement sur le web avec une attention particulière aux détails et à la fluidité.",
-      en: "Interfaces faithfully brought to life on the web with close attention to detail and fluidity.",
-    },
-    technologies: ["HTML/CSS", "React", "TypeScript", "Tailwind CSS", "GSAP"],
+    technologies: ["SQL", "Modélisation de données", "Supabase", "React", "Next.js", "TypeScript", "Tailwind CSS"],
     icon: Code2,
   },
   {
     id: "ai",
-    title: { fr: "Création augmentée par l’IA", en: "AI-augmented creation" },
+    title: { fr: "IA appliquée", en: "Applied AI" },
     description: {
-      fr: "Des outils IA choisis pour accélérer la recherche, l’itération et l’automatisation tout en gardant le regard du designer.",
-      en: "AI tools selected to accelerate research, iteration and automation while keeping the designer’s eye in control.",
+      fr: "Des outils IA intégrés aux produits et aux workflows pour aller plus vite, en gardant la décision humaine.",
+      en: "AI tools built into products and workflows to move faster while keeping humans in charge of decisions.",
     },
-    technologies: ["Codex", "Claude Code", "Prompting", "Automatisation"],
+    technologies: ["Claude Code", "Codex", "Gemini API", "Prompting", "Remotion", "Automatisation"],
     icon: Brain,
   },
 ];

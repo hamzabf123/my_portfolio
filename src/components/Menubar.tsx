@@ -27,8 +27,8 @@ const Menubar = ({
   const { locale } = useLanguage();
   const copy =
     locale === "fr"
-      ? { home: "Accueil", profile: "Profil", experience: "Parcours", contact: "Me contacter" }
-      : { home: "Home", profile: "Profile", experience: "Experience", contact: "Contact me" };
+      ? { home: "Accueil", profile: "Profil", work: "Projets", alternance: "Alternance", experience: "Parcours", contact: "Me contacter" }
+      : { home: "Home", profile: "Profile", work: "Projects", alternance: "Work-study", experience: "Experience", contact: "Contact me" };
 
   return (
     <nav>
@@ -47,6 +47,16 @@ const Menubar = ({
             className={linkClass}
           >
             {copy.profile}
+          </Link>
+        </li>
+        <li>
+          <Link href="/#work" className={linkClass}>
+            {copy.work}
+          </Link>
+        </li>
+        <li>
+          <Link href="/#alternance" className={linkClass}>
+            {copy.alternance}
           </Link>
         </li>
         <li>

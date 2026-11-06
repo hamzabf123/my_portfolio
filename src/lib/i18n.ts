@@ -32,6 +32,7 @@ export function getPageTitle(locale: Locale, pathname: string) {
   if (pathname.startsWith("/about")) return copy.about;
   if (pathname.startsWith("/contact")) return copy.contact;
   if (pathname.startsWith("/projects")) return copy.projects;
+  if (pathname === "/") return copy.home;
   if (pathname === "/404") return copy.notFound;
   return copy.notFound;
 }

@@ -19,6 +19,33 @@ export interface ProjectEnglishTranslation {
 }
 
 export const projectEnglishTranslations: Record<string, ProjectEnglishTranslation> = {
+  rush: {
+    name: "RU$H",
+    tagline: "Framing, designing and launching a new point-of-sale brand for cafés and snacks in Morocco",
+    summary: "A BILL APP sub-brand: product framing, benchmark, design system, landing page and launch content, with AI.",
+    role: "Product Designer & Product Builder",
+    year: "November 2026",
+    stack: ["PRD", "Figma", "Design system", "Remotion", "Claude Code"],
+    highlights: [
+      "Product framing: problem, personas, KPIs and offer scope",
+      "Competitor benchmark and a pricing grid approved by management",
+      "Figma design system: 103 variables, styles and master components",
+      "Landing page V2, Figma posts and a product Reel built with Remotion",
+    ],
+    caseStudy: {
+      context: { heading: "Context", body: ["BILL APP mainly serves franchises and networks, with long sales cycles. Cafés, snacks and small shops in Morocco were left with tools that were either too heavy or too basic, with no real support.", "RU$H is the answer: a standalone sub-brand, “powered by Bill-App”, offering a simple point-of-sale system that is installed and supported in French and Darija. I carried the project end to end, from framing to launch content."] },
+      problem: { heading: "The problem to solve", body: ["A snack owner has no time for technical meetings: they need to understand the offer in seconds, trust a brand they have never heard of and decide quickly.", "That meant a clear offer, a brand that feels credible from day one and a journey that turns Instagram and TikTok traffic into sales conversations."] },
+      contribution: { heading: "My approach", body: ["I worked in short sprints and documented every decision for the team. After the market analysis, the project moved from a first bundle (kiosk, web app, loyalty) to an offer focused on the POS and a software subscription."], bullets: ["Framing: PRD, personas (the busy owner, the new entrepreneur), conversion and deployment KPIs", "Research: benchmark of Caisse Manager, Lacaisse.ma, Inyad, Tabesto and BILL, coding of 80 moments from competitor videos, study of kiosks and digital signage", "Offer: a pricing grid compared with the market and approved by management", "Design: the “Counter on fire” visual direction, a Figma design system (103 variables, 20 text styles, master components) and a POS interface mockup", "Web: conversion-focused landing page V1 then V2, responsive and accessible", "Content: Figma carousels and posts, Reel storyboards and a product video coded with Remotion", "Team: a shared project space to follow analysis, site, posts and video on one page"] },
+      challenges: { heading: "AI in my workflow", body: ["I used Claude Code as a production partner: competitive research and synthesis, generating pages and render scripts, and automated quality checks (contrast, screen geometry, price consistency). I reviewed and signed off every output.", "The key was keeping one source of truth. When the offer changed, I recommended archiving the old PRD so that two versions would not produce contradictory visuals."] },
+      outcome: { heading: "Where the project stands", body: ["The pricing grid is approved, the V2 landing page is in demo, and the first posts and the Reel are ready for review. Next step: replace the illustrative visuals with a real installation photo shoot.", "This project sums up the role I am aiming for: understanding a market, framing a product, designing it and shipping it with a team, with AI as leverage."] },
+    },
+    gallery: [
+      { alt: "Top of the RU$H V2 landing page: “Le rush commence. Gardez la main.”", caption: "Landing page V2: a short promise, a counter scene and direct calls to action." },
+      { alt: "Frame from the RU$H “Tapez.” Reel with the POS and printer", caption: "“Blaze Hour” Reel (9:16, 20 s), animated with Remotion." },
+      { alt: "RU$H “12:30. Gardez la main.” post with a server at the counter", caption: "Social post designed in Figma with the RU$H design system." },
+    ],
+    imageAlt: "RU$H point-of-sale interface mockup",
+  },
   "morocco-franchise-exhibition": {
     name: "Morocco Franchise Exhibition",
     tagline: "Visual identity and graphic rollout for the BILL APP stand",

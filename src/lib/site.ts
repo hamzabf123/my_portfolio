@@ -8,7 +8,7 @@ export const siteConfig = {
   github: "",
   linkedIn: "",
   instagram: "",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-portfolio-six-chi-15.vercel.app",
   resumePath: "/Hamza_Boufass_CV_2026.pdf",
   /** The contact form falls back to email while no Formspree ID is configured. */
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "",

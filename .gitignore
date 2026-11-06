@@ -41,3 +41,4 @@ next-env.d.ts
 
 # CV build output (regenerate with python cv/build_cv.py)
 /cv/out/
+/cv/hub/media/

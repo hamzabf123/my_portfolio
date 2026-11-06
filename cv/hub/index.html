@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV & Portfolio – Hamza BOUFASS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F172A;--slate:#1E293B;--muted:#55627A;--line:#E2E8F0;--bg:#F6F8FA;--accent:#D97706;--accent2:#4F46E5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:var(--slate);color:#fff;padding:36px 0 30px;position:relative}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+h1,h2,h3{font-family:'Plus Jakarta Sans',Inter,sans-serif;letter-spacing:-.02em;margin:0}
+header h1{font-size:clamp(26px,5vw,38px)}
+header p{color:#CBD5E1;margin:8px 0 0;max-width:640px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;text-decoration:none;border-radius:10px;padding:11px 16px;background:#FCD34D;color:var(--slate)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #475569}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+main{padding:32px 0 48px}
+.intro{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px;background:#EEF2F6;border-bottom:1px solid var(--line)}
+.thumbs button{all:unset;cursor:zoom-in;display:block;border-radius:6px;overflow:hidden;box-shadow:0 2px 10px #0f172a22}
+.thumbs button:focus-visible{outline:3px solid var(--accent2)}
+.thumbs img{width:100%;display:block}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.card h3{font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.card .btn{align-self:flex-start;margin-top:auto;background:var(--slate);color:#fff}
+.url{font-size:12px;color:var(--muted);word-break:break-all}
+.note{margin-top:28px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--slate)}
+.note b{display:block;margin-bottom:4px}
+footer{padding:0 0 40px;font-size:12px;color:var(--muted)}
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%}
+dialog::backdrop{background:#0F172Ae8}
+.viewer{height:100%;display:flex;flex-direction:column}
+.vbar{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#fff}
+.vbar b{font-family:'Plus Jakarta Sans',sans-serif}
+.vbtn{all:unset;cursor:pointer;margin-left:auto;font:600 13px Inter,sans-serif;color:#fff;border:1px solid #475569;border-radius:10px;padding:9px 14px;background:#1E293B}
+.vbtn:focus-visible{outline:3px solid #fff}
+.vstage{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:0 12px 16px}
+.vstage img{max-width:min(900px,100%);border-radius:6px;background:#fff}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>CV & Portfolio · Hamza BOUFASS</h1>
+  <p>Les 4 versions du CV pour les candidatures en master en alternance (rentrée septembre 2027), et le portfolio en ligne. Mis à jour le 6 novembre 2026.</p>
+  <div class="links">
+    <a class="btn" href="https://my-portfolio-six-chi-15.vercel.app/">Ouvrir le portfolio ↗</a>
+    <a class="btn ghost" href="https://my-portfolio-six-chi-15.vercel.app/projects/rush">Étude de cas RU$H ↗</a>
+    <a class="btn ghost" href="https://github.com/hamzabf123/my_portfolio">Code sur GitHub ↗</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <p class="intro">Touchez une page pour l'agrandir. « Ouvrir le PDF » ouvre le fichier sur le site, à télécharger ou à joindre à une candidature.</p>
+  <div class="grid" id="grid"></div>
+  <div class="note"><b>Mettre à jour un CV</b>Le texte se modifie dans <code>cv/build_cv.py</code>, puis la commande <code>python cv/build_cv.py</code> régénère les 4 PDF. Un push sur <code>main</code> les met en ligne via Vercel.</div>
+</main>
+<footer class="wrap">Page privée · visible par toi seul tant que tu ne la partages pas.</footer>
+
+<dialog id="viewer" aria-label="Aperçu du CV">
+  <div class="viewer">
+    <div class="vbar"><b id="vtitle"></b><button class="vbtn" type="button" id="vclose">Fermer</button></div>
+    <div class="vstage" id="vstage"><img id="vimg" alt=""></div>
+  </div>
+</dialog>
+
+<script>
+const SITE = "https://my-portfolio-six-chi-15.vercel.app/cv/";
+const CVS = [
+  {k:"Product", tag:"Version principale", t:"Product Designer & Product Builder IA", d:"Le CV généraliste, aussi téléchargeable sur le portfolio.", f:"Hamza_Boufass_CV_Product.pdf"},
+  {k:"MIAGE_Informatique", tag:"MIAGE / Informatique", t:"Futur apprenti Chef de projet IA / Product Owner", d:"Pour la MIAGE IA2 (Nice), la MIAGE UGA (Grenoble) et le master informatique de Lyon 2.", f:"Hamza_Boufass_CV_MIAGE_Informatique.pdf"},
+  {k:"Innovation_Produit", tag:"Innovation / Produit", t:"Futur apprenti Product Manager / Chef de projet innovation", d:"Pour Grenoble IAE, IAE Savoie Mont Blanc, IRIIG, GEM et HETIC.", f:"Hamza_Boufass_CV_Innovation_Produit.pdf"},
+  {k:"Design_UX", tag:"Design / UX", t:"Futur apprenti UX/UI & Product Designer", d:"Pour le master Info-Com Design de communication de l'UJM (Saint-Étienne).", f:"Hamza_Boufass_CV_Design_UX.pdf"},
+];
+const grid = document.getElementById("grid");
+for (const c of CVS) {
+  const el = document.createElement("article");
+  el.className = "card";
+  el.innerHTML = `<div class="thumbs">${[1,2].map(n => `<button type="button" data-src="media/${c.k}-${n}.webp" data-title="${c.tag} · page ${n}"><img src="media/${c.k}-${n}.webp" alt="${c.tag}, page ${n}" loading="lazy"></button>`).join("")}</div>
+    <div class="body"><span class="tag">${c.tag}</span><h3>${c.t}</h3><p>${c.d}</p>
+    <span class="url">${SITE}${c.f}</span>
+    <a class="btn" href="${SITE}${c.f}">Ouvrir le PDF ↗</a></div>`;
+  grid.appendChild(el);
+}
+const dlg = document.getElementById("viewer"), vimg = document.getElementById("vimg"), vtitle = document.getElementById("vtitle");
+grid.addEventListener("click", e => {
+  const b = e.target.closest("button[data-src]"); if (!b) return;
+  vimg.src = b.dataset.src; vimg.alt = b.dataset.title; vtitle.textContent = b.dataset.title;
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+});
+document.getElementById("vclose").onclick = () => dlg.close();
+document.getElementById("vstage").addEventListener("click", e => { if (e.target.id === "vstage") dlg.close(); });
+</script>
+</body>
+</html>

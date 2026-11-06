@@ -8,6 +8,7 @@ Outputs:
   cv/out/*.html                       editable HTML sources
   cv/pdf/*.pdf                        the 4 PDFs to send to schools
   public/Hamza_Boufass_CV_2026.pdf    the main version, linked from the site
+  public/cv/*.pdf                     all variants, online at <site>/cv/<file>
 """
 import argparse
 import html
@@ -381,6 +382,10 @@ def main():
         print("ok", pdf.name)
 
     shutil.copyfile(PDF / VARIANTS["principal"]["file"], ROOT / "public" / "Hamza_Boufass_CV_2026.pdf")
+    # All variants are also served by the site, so they can be opened from any device.
+    (ROOT / "public" / "cv").mkdir(exist_ok=True)
+    for v in VARIANTS.values():
+        shutil.copyfile(PDF / v["file"], ROOT / "public" / "cv" / v["file"])
     print("ok public/Hamza_Boufass_CV_2026.pdf")
 
 

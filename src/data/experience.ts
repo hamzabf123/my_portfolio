@@ -9,7 +9,7 @@ export interface Contribution {
 }
 
 export const primaryExperience = {
-  title: "Digital Designer",
+  title: "Junior Digital Designer",
   company: "BILL APP",
   companyUrl: "",
   location: { fr: "Casablanca, Maroc", en: "Casablanca, Morocco" },
@@ -18,7 +18,7 @@ export const primaryExperience = {
   periods: [
     {
       employmentType: { fr: "CDI", en: "Permanent role" },
-      duration: { fr: "Depuis avril 2026", en: "Since April 2026" },
+      duration: { fr: "Depuis mai 2026", en: "Since May 2026" },
     },
     {
       employmentType: { fr: "Stage", en: "Internship" },
@@ -30,8 +30,8 @@ export const primaryExperience = {
   ],
   employmentType: { fr: "CDI", en: "Permanent role" },
   duration: {
-    fr: "Depuis avril 2026 · après un stage de 6 mois d’octobre à avril",
-    en: "Since April 2026 · after a 6-month internship from October to April",
+    fr: "Depuis mai 2026 · après un stage de 6 mois d’octobre à avril",
+    en: "Since May 2026 · after a 6-month internship from October to April",
   },
   description: {
     fr: "Je participe à la digitalisation 360 de la restauration : interfaces web, outils internes avec IA, refonte de site, et lancement de RU$H, une nouvelle marque de caisse pour les petits commerces, du cadrage aux contenus.",

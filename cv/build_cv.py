@@ -317,8 +317,8 @@ def render(v, portfolio):
       <section><h2>Profil</h2><p class="profile">{e(v['profile'])}</p></section>
       <section><h2>Expérience</h2>
         <div class="job">
-          <div class="job-head"><h3>Digital Designer</h3><span class="date">CDI · depuis avril 2026</span></div>
-          <p class="company">BILL APP · Casablanca · digitalisation de la restauration</p>
+          <div class="job-head"><h3>Junior Digital Designer</h3><span class="date">CDI · depuis mai 2026</span></div>
+          <p class="company">BILL APP (Universal Tech Ventures) · Casablanca · digitalisation de la restauration</p>
           <span class="tag">Stage oct. 2025 — avr. 2026, puis CDI</span>
           <ul>{bill}</ul>
         </div>

@@ -118,7 +118,7 @@ VARIANTS = {
         "file": "Hamza_Boufass_CV_Product.pdf",
         "title": "Product Designer & Product Builder IA",
         "sub": "Futur apprenti Product Owner / Chef de projet digital · Master en alternance · Lyon · sept. 2027",
-        "profile": "Licencié en informatique (bases de données) et designer produit chez BILL APP depuis 2025. Je cadre un besoin, je le rends visible avec des maquettes et je le livre avec l'équipe, en code ou avec l'IA. Je cherche un master en alternance pour devenir Product Owner ; une entreprise lyonnaise est prête à m'accueillir en apprentissage.",
+        "profile": "Licencié en informatique (bases de données) et designer produit chez BILL APP depuis 2025. Je cadre un besoin, je le rends visible avec des maquettes et je le livre avec l'équipe, en code ou avec l'IA. Je cherche un master en alternance pour devenir Product Owner, avec un projet d'apprentissage à Lyon.",
         "skills": ["product", "ux", "data", "ai", "graphic"],
         "bill": ["rush", "plugins", "content", "site"],
         "projects": ["rush", "billdesign", "export", "site"],
@@ -309,7 +309,7 @@ def render(v, portfolio):
     <aside>
       <section><h2>Contact</h2><ul class="contact">{contact}</ul></section>
       <div class="goal"><b>Objectif alternance</b>
-        <ul><li>Master Bac+5 en 2 ans</li><li>Contrat d'apprentissage dès la 1re année</li><li>Lyon ou à 1h30 maximum</li><li>Entreprise d'accueil identifiée à Lyon</li></ul></div>
+        <ul><li>Master Bac+5 en 2 ans</li><li>Contrat d'apprentissage dès la 1re année</li><li>Lyon ou à 1h30 maximum</li><li>Promesse d'embauche visée après l'admission</li></ul></div>
       <section><h2>Langues</h2>{langs}</section>
       <section><h2>Atouts</h2><ul class="plain">{quals}</ul></section>
     </aside>

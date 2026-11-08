@@ -12,10 +12,10 @@ const copy = {
     titleStart: "Un master en alternance à Lyon,",
     titleAccent: "dès septembre 2027.",
     lead:
-      "Je cherche un Bac+5 en deux ans, en contrat d’apprentissage dès la première année. Une entreprise lyonnaise est prête à m’accueillir : il me manque la formation qui fera de moi un Product Owner complet.",
+      "Je cherche un Bac+5 en deux ans, en contrat d’apprentissage dès la première année. Je vise une entreprise à Lyon, avec une promesse d’embauche après l’admission, et une formation qui fera de moi un Product Owner complet.",
     facts: [
       { icon: MapPin, label: "Lyon, ou à 1h30 max", detail: "Grenoble, Saint-Étienne, Annecy" },
-      { icon: Briefcase, label: "Contrat d’apprentissage", detail: "Entreprise d’accueil déjà identifiée à Lyon" },
+      { icon: Briefcase, label: "Contrat d’apprentissage", detail: "Promesse d’embauche visée après l’admission" },
       { icon: GraduationCap, label: "Rentrée septembre 2027", detail: "Master d’État ou grade de master" },
     ],
     cards: [
@@ -43,10 +43,10 @@ const copy = {
     titleStart: "A work-study master’s in Lyon,",
     titleAccent: "from September 2027.",
     lead:
-      "I am looking for a two-year master’s with an apprenticeship contract from the first year. A Lyon-based company is ready to hire me: what I need now is the programme that will make me a well-rounded Product Owner.",
+      "I am looking for a two-year master’s with an apprenticeship contract from the first year. I am targeting a company in Lyon, with a job offer after admission, and a programme that will make me a well-rounded Product Owner.",
     facts: [
       { icon: MapPin, label: "Lyon, or within 1h30", detail: "Grenoble, Saint-Étienne, Annecy" },
-      { icon: Briefcase, label: "Apprenticeship contract", detail: "Host company already identified in Lyon" },
+      { icon: Briefcase, label: "Apprenticeship contract", detail: "Job offer targeted after admission" },
       { icon: GraduationCap, label: "Starting September 2027", detail: "State master’s or master’s degree" },
     ],
     cards: [

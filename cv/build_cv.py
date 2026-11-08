@@ -45,7 +45,7 @@ SKILLS = {
 
 TOOLS = ["Figma", "Claude Code", "Codex", "Supabase", "Next.js", "React", "WordPress", "Sanity", "Remotion", "Illustrator", "Photoshop", "Canva"]
 
-LANGS = [("Français", "courant · DELF B2 en décembre 2026"), ("Anglais", "courant"), ("Arabe", "langue maternelle")]
+LANGS = [("Français", "courant · DELF B2 en décembre 2026"), ("Anglais", "intermédiaire (B1/B2)"), ("Arabe", "langue maternelle")]
 QUALITIES = ["Autonomie et sens des priorités", "Curiosité, apprentissage rapide", "Communication avec les équipes métier", "Rigueur sur ce qui est livré"]
 
 BILL_BULLETS = {
@@ -54,7 +54,7 @@ BILL_BULLETS = {
     "plugins": "Conception et livraison de <b>2 plugins Figma utilisés en production</b>, dont un agent IA (Gemini API, Supabase).",
     "content": "Design system, landing page, posts et vidéo produit codée avec Remotion, avec Claude Code comme outil de production.",
     "site": "Site BILL APP : V1 sous WordPress, puis composants V2 en Next.js SSR et Sanity.",
-    "research": "Recherche marché : 80 instants de vidéos concurrentes codés, étude des bornes et de l'affichage dynamique au Maroc.",
+    "research": "Recherche marché : analyse des vidéos concurrentes, étude des bornes et de l'affichage dynamique.",
     "decks": "Pitch decks et supports commerciaux pour les rendez-vous clients.",
 }
 
@@ -120,7 +120,7 @@ VARIANTS = {
         "sub": "Futur apprenti Product Owner / Chef de projet digital · Master en alternance · Lyon · sept. 2027",
         "profile": "Licencié en informatique (bases de données) et designer produit chez BILL APP depuis 2025. Je cadre un besoin, je le rends visible avec des maquettes et je le livre avec l'équipe, en code ou avec l'IA. Je cherche un master en alternance pour devenir Product Owner ; une entreprise lyonnaise est prête à m'accueillir en apprentissage.",
         "skills": ["product", "ux", "data", "ai", "graphic"],
-        "bill": ["rush", "plugins", "content", "site", "decks"],
+        "bill": ["rush", "plugins", "content", "site"],
         "projects": ["rush", "billdesign", "export", "site"],
     },
     "miage": {
@@ -129,16 +129,16 @@ VARIANTS = {
         "sub": "Licence Informatique (BDD) · MIAGE / Master informatique en alternance · sept. 2027",
         "profile": "Licencié en informatique, spécialité bases de données, avec plus d'un an d'expérience en entreprise chez BILL APP. J'y conçois et livre des outils utilisés en production (plugins, agent IA connecté à une base Supabase) et je pilote le lancement d'un produit. Je veux renforcer les systèmes d'information, la gestion de projet et l'IA en MIAGE ou en master informatique, en contrat d'apprentissage à Lyon.",
         "skills": ["data", "product", "ai", "ux", "graphic"],
-        "bill": ["plugins", "rush", "site", "content", "decks"],
+        "bill": ["plugins", "rush", "site", "content"],
         "projects": ["billdesign", "rush", "export", "site"],
     },
     "innovation": {
         "file": "Hamza_Boufass_CV_Innovation_Produit.pdf",
         "title": "Futur apprenti Product Manager / Chef de projet innovation",
         "sub": "Licence Informatique · Master innovation & produit en alternance · sept. 2027",
-        "profile": "Profil hybride produit, design et tech. Chez BILL APP, j'ai mené le lancement de RU$H, une nouvelle marque pour les petits commerces : analyse du marché, construction de l'offre et des prix, puis site et contenus de lancement. Je cherche un master en innovation ou en management de produit, en alternance à Lyon, pour consolider la stratégie et le pilotage de projet.",
+        "profile": "Chez BILL APP, j'ai mené le lancement de RU$H, une nouvelle marque pour les petits commerces : analyse du marché, construction de l'offre et des prix, puis site et contenus de lancement. Je cherche un master en innovation ou en management de produit, en alternance à Lyon, pour consolider la stratégie et le pilotage de projet.",
         "skills": ["product", "ux", "ai", "data", "graphic"],
-        "bill": ["rush", "research", "plugins", "content", "decks"],
+        "bill": ["rush", "research", "plugins", "content"],
         "projects": ["rush", "export", "billdesign", "mfe"],
     },
     "design": {
@@ -147,18 +147,16 @@ VARIANTS = {
         "sub": "Licence Informatique · Master design numérique & innovation en alternance · sept. 2027",
         "profile": "Designer produit chez BILL APP, avec une formation d'informaticien. Je conçois des interfaces, des design systems et des contenus, du besoin utilisateur jusqu'à la mise en ligne. Je cherche un master en design numérique et innovation, en alternance à Lyon, pour approfondir la recherche UX, la médiation et l'innovation par le design.",
         "skills": ["ux", "graphic", "product", "ai", "data"],
-        "bill": ["rush_design", "plugins", "research", "site", "decks"],
+        "bill": ["rush_design", "plugins", "research", "site"],
         "projects": ["rush", "billdesign", "export", "mfe"],
     },
 }
 
 OTHER_JOBS = [
     ("UI Designer & Infographiste · Stage", "OLFACTIVE · Casablanca", "Juil. — oct. 2025",
-     ["Premières maquettes Figma et évolutions du site pour le client Orange.",
-      "Visuels et supports d'impression pour Déco Bec, contenus de communication."]),
+     ["Maquettes Figma et évolutions du site pour le client Orange ; visuels print pour Déco Bec."]),
     ("Fondateur & responsable", "CASA STICKERS · Freelance", "2021 — juin 2025",
-     ["Création et vente d'autocollants et d'affiches personnalisés.",
-      "Branding, boutique en ligne et relation client, de la commande à la livraison."]),
+     ["Création et vente d'autocollants et d'affiches : branding, boutique en ligne, relation client."]),
     ("Télévendeur", "CAPITAL HUMAIN CALL", "Juin — nov. 2021",
      ["Conseil aux clients sur le choix de formations adaptées à leur solde CPF."]),
 ]
@@ -230,7 +228,7 @@ h2::before { content: ""; width: 2.2mm; height: 2.2mm; border-radius: 50%; backg
 .tools span { font-size: 8.2pt; background: #fff; border: .3mm solid #CBD5E1; border-radius: 1mm; padding: .6mm 2mm; }
 
 .profile { font-size: 9.4pt; color: #334155; }
-.job { margin-bottom: 3mm; }
+.job { margin-bottom: 2.2mm; }
 .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
 .job-head h3 { font-size: 10.4pt; font-weight: 800; }
 .job-head .date { font-size: 7.9pt; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--slate); white-space: nowrap; }
@@ -242,6 +240,7 @@ h2::before { content: ""; width: 2.2mm; height: 2.2mm; border-radius: 50%; backg
 
 .edu-head { display: flex; justify-content: space-between; align-items: baseline; }
 .edu-head b { font-size: 10pt; }
+.mini-edu b { font-size: 9pt; font-weight: 600; }
 .edu-head span { font-size: 8.6pt; color: var(--muted); }
 .certs { margin-top: 2.4mm; display: flex; flex-direction: column; gap: 1.4mm; }
 .certs span { font-size: 8.4pt; }
@@ -328,6 +327,8 @@ def render(v, portfolio):
       <section><h2>Formation</h2>
         <div class="edu-head"><b>Licence en informatique · spécialité bases de données</b><span>2022 — 2025</span></div>
         <p class="company">Faculté des Sciences Ben M'Sik · Université Hassan II · Casablanca</p>
+        <div class="edu-head mini-edu"><b>CPGE filière TSI · Lycée Technique de Mohammedia</b><span>2019 — 2021</span></div>
+        <div class="edu-head mini-edu"><b>Bac Sciences et Technologies Mécaniques · mention Bien</b><span>2019</span></div>
       </section>
     </main>
   </div>
